@@ -1,0 +1,1461 @@
+%/title{Reporte 1}
+
+\documentclass[11pt,letterpaper]{article}     % Tipo de documento y otras especificaciones
+\usepackage[utf8]{inputenc}                   % Para escribir tildes y eñes
+\usepackage{amsmath, amssymb, amsfonts, latexsym}
+\usepackage[spanish]{babel}                   % Para que los títulos de figuras, tablas y otros estén en español
+\addto\captionsspanish{\renewcommand{\tablename}{Tabla}}                    % Cambiar nombre a tablas
+\addto\captionsspanish{\renewcommand{\listtablename}{Índice de tablas}}     % Cambiar nombre a lista de tablas
+\usepackage{geometry}                         
+\geometry{left=18mm,right=18mm,top=30mm,bottom=30mm} % Tamaño del área de escritura de la página
+%\usepackage{ucs}
+\usepackage{graphicx}     % Para insertar gráficas
+\usepackage[lofdepth,lotdepth]{subfig}  % Para colocar varias figuras
+%\usepackage{unitsdef}    % Para la presentación correcta de unidades
+\usepackage{pdfpages}   %incluir paginas de pdf externo, para los anexos
+\usepackage{appendix}   %para los anexos
+%\renewcommand{\unitvaluesep}{\hspace*{4pt}}    % Redimensionamiento del espacio entre magnitud y unidad
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black,citecolor=black]{hyperref}     % Para insertar hipervínculos y marcadores
+\usepackage{float} % Para ubicar las tablas y figuras justo después del texto
+\usepackage{booktabs}   % Para hacer tablas más estilizadas
+\batchmode
+\bibliographystyle{plain} 
+%\pagestyle{plain} 
+\pagenumbering{roman}
+\usepackage{lastpage}
+\usepackage{fancyhdr}   % Para manejar los encabezados y pies de página
+\pagestyle{fancy}       % Contenido de los encabezados y pies de pagina
+\usepackage{multicol}
+%\usepackage{subfigure}
+\usepackage{textcomp}
+
+\lhead{TFG}
+\chead{}
+\rhead{La Ecuación de Dirac en el plano}   % Aquí va el numero de experimento, al igual que en el titulo
+\lfoot{Universidad de Salamanca}
+\cfoot{\thepage\ }
+\rfoot{Facultad de Física}
+
+
+\author{Alumno: Ángel Delgado Panadero \\  Tutor: Marina de la Torre Mayado \vspace*{1.0in}}
+\title{Universidad de Salamanca\\{\small Facultad de Física}\\ {\small Trabajo de Fin de Grado}\vspace*{1.5in}\\ La Ecuación de Dirac en el plano\vspace*{3in}}
+\date{15 de Marzo de 2015}     
+
+\newpage             
+
+%%%%%%%%%%%%%%%%
+\begin{document}                    % Inicio del documento
+%%%%%%%%%%%%%%%%
+
+\pdfbookmark[1]{Portada}{portada}   % Marcador para el título
+
+\maketitle                          % Título
+
+\thispagestyle{empty}
+\tableofcontents
+
+\newpage
+
+\pagenumbering{arabic}
+\cfoot{\thepage}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introducción}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+Le ecuación de Dirac está altamente ligada a la geometría espacial, es por ello por lo que el estudio en (2+1)-dimensiones más que ser una particularización con fines didácticos supone un cambio en la forma de los estados  que describen las partículas relativistas de espín 1/2 encerradas en un plano.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{La ecuación de Dirac en (3+1)-dimensiones}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+Siguiendo con la formulación de la mecánica cuántica tradicional de describir las partículas por medio de funciones de onda con significado probabilístico, la ecuación de Dirac surge como extensión de esta formulación al caso relativista. Describe partículas de spin 1/2 como electrones así como protones y neutrones de manera aproximada.\\ \\
+En este capítulo introducimos las ecuaciones de ondas y soluciones relativistas para el caso de (3+1)-dimensiones, que posteriormente restringiremos a (2+1)-dimensiones, que es el tema planteado en este trabajo.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{La ecuación de Klein-Gordon}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+La energía de una partícula libre sin presencia de potenciales desde un punto de vista relativista se escribe como
+\begin{equation} \label{eq:1}
+E^2=p^2c^2+m^2c^4 \qquad .
+\end{equation}
+\\Si seguimos con la formulación habitual de la mecánica cuántica en la que se le asigna a los observables un operador que actúa sobre la función de onda, obtenemos una ecuación diferencial en derivadas parciales de segundo orden en las derivadas temporales y espaciales
+\begin{equation}\label{eq:2}
+- \hbar^2 \frac{\partial^2}{\partial  t^2} \psi(\vec{x},t) =  -\hbar^2 c^2 \nabla^2 \psi(\vec{x},t) + m^2c^4  \psi(\vec{x},t)\qquad ,
+\end{equation}
+\\donde las variables $\vec{x}$ y $t$ se corresponden con las coordenadas espaciales y temporales de la partícula respectivamente. Dado que estamos planteando una ecuación para partículas relativistas, esta debe ser invariante bajo transformaciones Lorentz y podemos escribirla en forma covariante. Para ello introducimos las coordenadas y operadores diferenciales en notación covariante \\ \\
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Notación Relativista} \\ \\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+Los postulados de la relatividad nos dicen que la velocidad de la luz en el vacío es la misma en todos los sistemas de referencia inerciales, así como las leyes de la física (la teoría debe presentar covariancia bajo transformaciones entre estos sistemas), de modo que el espacio en el que suceden los fenómenos físicos es un espacio de dimensión cuatro con una métrica caracterizada por el intervalo espacio-temporal entre dos sucesos:
+\begin{equation} \label{eq:3}
+s^2=c^2t^2-\vec{x}^{ 2}
+\end{equation} \\ \\
+De esta forma se define el cuadrivector posición como
+\begin{equation}\label{eq:4}
+x^\mu=(x^0,x^i) \equiv (ct,\vec{x})
+\end{equation} \\ \\
+con $\mu$=0,1,2,3 e i=1,2,3 tal que
+\begin{equation} \label{eq:5}
+s^2=x^0x^0 - x^i x^i = g_{\mu \nu} x^\mu x^\nu
+\end{equation} \\ \\
+donde,
+\begin{equation} \label{eq:6}
+g_{\mu \nu} = g_{\nu \mu} = diag(1,-1,-1,-1) \qquad .
+\end{equation} \\ \\
+El espacio donde suceden los fenómenos físicos es el espacio de Minkowski, $\mathbf{R}^{1,3}$, con una métrica hiperbólica, $g_{\mu \nu}$, y distinta a la usada en el espacio euclídeo, $\delta_{\mu \nu}$, propia física no relativista
+\begin{equation} \label{eq:7}
+\delta_{\mu \nu} = diag(1,1,1,1) \qquad .
+\end{equation} \\ \\
+ Las transformaciones de Lorentz son transformaciones lineales en el espacio de Minkowski y que mantienen invariante $s^2$
+\begin{equation} \label{eq:8}
+x^{\mu} \qquad \rightarrow \qquad {x^{'}}^{\mu}={\Lambda^\mu}_\nu x^\nu \qquad,
+\end{equation} \\ \\
+con lo cual, para que el intervalo entre 2 sucesos permanezca invariante se debe cumplir que
+\begin{equation}  \label{eq:9}
+g_{\sigma \rho}={\Lambda^\mu}_\sigma {\Lambda^\nu}_\rho g_{\mu \nu} \qquad ,
+\end{equation} \\ \\
+de modo que el conjunto de transformaciones lineales que satisfacen la relación anterior constituyen las transformaciones de  Lorentz: Rotaciones espaciales, Boosts, inversión temporal, paridad e inversión total. En (3+1)-dimensiones los generadores de estas transformaciones satisfacen el álgebra de Lie, y pueden ser identificados con el grupo SO(3+1). Además de la expresión anterior se puede demostrar que las transformaciones de Lorentz se puede expresar en función de un tensores antisimétricos, y por lo tanto, estas transformaciones están caracterizadas por 6 parámetros independientes.  \\ \\
+Además de por transformaciones lineales, existen otra que también dejan invariante el intervalo espacio temporal, estas son las traslaciones uniformes
+\begin{equation}  \label{eq:10}
+x^{\mu} \qquad \rightarrow \qquad {x^{'}}^{\mu}=x^\mu + a^\mu \qquad,
+\end{equation}
+\\ \\ donde $a^\mu$ es un cuadrivector arbitrario, con lo cual, estas, están caracterizadas por 4 parámetros. El grupo de invariancia de la teoría en (3+1)-dimensiones es el grupo de Poincaré, que depende de 10 parámetros
+\begin{equation} \label{eq:11}
+x^{\mu} \qquad \rightarrow \qquad {x^{'}}^{\mu}={\Lambda^\mu}_\nu x^\nu + a^\mu \qquad .
+\end{equation} \\ \\
+Con todo esto, los operadores diferenciales en (3+1)-dimensiones se escriben como
+\begin{equation} \label{eq:12}
+\partial_\mu = \frac{\partial}{\partial x^\mu}=(\partial_t,\vec{\nabla} ) \hspace{2.5cm} \Box = \partial_\mu·\partial^\mu = \frac{\partial^2}{\partial t^2} - \nabla^2 \qquad ,
+\end{equation}\\
+de modo que la ecuación de Klein-Gordon se escribe explicitamente covariante como
+\begin{equation} \label{eq:13}
+\Box \psi(\vec{x},t) = m^2c^2 \psi(\vec{x},t)\qquad .
+\end{equation} \\
+El hermítico conjugado de la función de onda es la función de onda conjugada. Esta también es solución de la ecuación de Klein-Gordon
+\begin{equation} \label{eq:14}
+\psi(\vec{x},t)^\dagger=\psi(\vec{x},t)^* \hspace{3cm} \Box \psi(\vec{x},t)^\dagger = -m^2 \psi(\vec{x},t)^\dagger \qquad .
+\end{equation}
+\\Multiplicando la ecuación de onda ($\ref{eq:14}$) por $\psi$ y la ($\ref{eq:13}$) 
+por $\psi^\dagger$  y restándolas
+\begin{equation} \label{eq:15}
+\psi^\dagger \partial_\mu \partial^\mu \psi - \psi \partial_mu \partial^\mu \psi ^\dagger = 0
+$$\\$$
+\partial_\mu (\psi^\dagger \partial^\mu \psi - \psi \partial^\mu \psi^\dagger)=0 \qquad ,
+\end{equation}
+\\obtenemos una ecuación de continuidad en formulación covariante, lo cual nos permite definir el cuadrivector densidad de corriente para la función de onda solución como
+\begin{equation} \label{eq:16}
+\partial_\mu j^\mu = 0 \hspace{5cm}
+\j^\mu = \psi^\dagger \partial^\mu \psi - \psi \partial^\mu \psi^\dagger \qquad .
+\end{equation}
+\\Escribiendo la ecuación (\ref{eq:16}) de la forma habitual (separando las coordenadas espaciales y temporales) obtenemos la ecuación de continuidad habitual
+\begin{equation} \label{eq:17}
+\frac{\partial \rho}{\partial t} + \nabla \psi (\vec{x},t)=0 \qquad .
+\end{equation}
+\\Del mismo modo podemos obtener la densidad de probabilidad, así como la densidad de corriente, de las partículas descritas por esta ecuación, en términos de la función de onda, separando las componentes temporales y espaciales de la cuadricorriente $j^\mu$
+\begin{equation} \label{eq:18}
+\rho = \psi \frac{\partial \psi^\dagger}{\partial t} - \psi^\dagger \frac{\partial \psi^\dagger}{\partial t} \hspace{3cm}\vec{j} = \psi^\dagger \vec{\nabla} \psi - \psi \vec{\nabla} \psi^\dagger \qquad.
+\end{equation}
+\\La ecuación de Klein-Gordon admite soluciones de onda plana para la partícula libre.
+\begin{equation} \label{eq:19}
+\psi(\vec{x},t)=A \cdot e^{\frac{i}{\hbar}(\vec{p}\cdot \vec{x}-E \cdot t)}
+\end{equation}
+\\Para esta solución, la densidad de carga y la densidad tienen la siguiente expresión
+\begin{equation} \label{eq:20}
+\rho = 2 \cdot |A|^2 \cdot E \hspace{3cm} \vec{j} = 2\cdot |A|^2 \cdot \vec{p}.
+\end{equation}
+\\Recordamos que la energía relativista está definida de forma cuadrática, por lo que admite soluciones de energía negativa. Por lo tanto el hecho de que la densidad de probabilidad dependa linealmente de la energía supone un problema. En esta formulación ya no vale el significado probabilístico, es por ello por lo que se buscó una ecuación que partiera también de la definición de la energía en términos relativistas y que tuviera una probabilidad definida positiva, obteniendo así la ecuación de Dirac. \\
+\\Puede obtenerse una solución alternativa a este problema redefiniendo la densidad de probabilidad como la densidad de carga. De este modo el signo negativo para energías menores que cero de la densidad de probabilidad se puede justificar como un cambio de signo en la carga de las partículas que se describen (antipartículas).
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{La ecuación de Dirac}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+Siguiendo el mismo desarrollo lógico utilizado por Dirac vamos a buscar una ecuación de ondas en términos de operadores cuánticos buscando que cumpla dos requisitos: 
+\begin{itemize}
+\item Que sea consistente con la expresión relativista de la energía.
+\item Que nos de una densidad de probabilidad definida positiva. 
+\end{itemize}
+Lo primero requiere en principio que el grado con el que aparezce el operador energía en la ecuación ha de ser el mismo que para el del momento, mientras que lo segundo requiere que la ecuación de ondas sea de primer orden en derivadas temporales. Esto último se puede ver a partir del resultado de la ecuación de Klein-Gordon. Una ecuación de segundo orden en derivadas temporales nos llevaba a una ecuación de continuidad con una densidad de probabilidad de primer orden en derivadas temporales, con lo cual, estando la energía relativista definida de forma cuadrática, es posible la existencia de densidades de probabilidad negativas. No es muy difícil ver de ahí que una ecuación de primer orden en derivadas temporales nos da una densidad de probabilidad de orden cero en derivadas temporales, al igual que la que se obtiene en la ecuación de Schrodinger.\\
+\\Por lo tanto, se plantea una ecuación de primer orden en las derivadas temporales y espaciales. Tal como planteó P.A.M. Dirac, la forma más general que puede tener siguiendo estas prescripciones es:
+\begin{equation} \label{eq:21}
+i \frac{\hbar}{c}\frac{\partial}{\partial t} \psi (\vec{x},t) = i \hbar \alpha^i\cdot \frac{\partial}{\partial x^i} \psi(\vec{x},t) + \beta\cdot mc \psi(\vec{x},t) \qquad .
+\end{equation}
+\\Donde los coeficientes $\alpha^i$ (donde i=1,2,3) y $\beta$ son constantes a determinar y que podemos caracterizar por medio de imponer la expresión relativista de la energía. Elevando cada miembro de la ecuación anterior al cuadrado
+\begin{equation} \label{eq:22}
+\frac{\hbar^2}{c^2} \frac{\partial^2}{\partial t^2} = \hbar^2(\alpha^i \frac{\partial}{\partial x^i})(\alpha^j \frac{\partial}{\partial x^j}) +  \beta^2 m^2c^2 + i\hbar mc(\alpha^i  \frac{\partial}{\partial x^i} \cdot \beta + \beta \cdot \alpha^i \frac{\partial}{\partial x^i}) $$\\$$
+\frac{\hbar^2}{c^2} \frac{\partial^2}{\partial t^2} = \hbar^2{\alpha^i}^2 \frac{\partial^2}{\partial {x^i}^2} + \beta^2 m^2 c^2 + \hbar^2\sum_{j<i} \alpha^i \alpha^j \cdot \frac{\partial^2}{\partial x^i \partial x^j} + i\hbar mc(\alpha^i \frac{\partial}{\partial x^i} \cdot \beta + \beta \cdot \alpha^i \frac{\partial}{\partial x^i}) \qquad .
+\end{equation}
+\\Donde el sumatorio en $j<i$ es debido a la simetría al intercambio en el producto de derivadas parciales, y por lo tanto, los coeficientes $\alpha^i$ que buscamos también la deben tener. También podemos escribir la ecuación anterior como
+\begin{equation} \label{eq:23}
+\frac{\hbar^2}{c^2} \frac{\partial^2}{\partial t^2} = \frac{\hbar^2}{2}(\alpha^i \alpha^j + \alpha^j \alpha^i) \frac{\partial^2}{\partial x^i \partial x^j} + \beta^2 m^2c^2 +  i\hbar mc(\alpha^i \beta + \beta  \alpha^i) \frac{\partial}{\partial x^i} \qquad .
+\end{equation} 
+\\Por otro lado si escribimos la ecuación ($\ref{eq:1}$) para la energía en términos de los operadores canónicos obtenemos
+\begin{equation} \label{eq:24}
+E^2 = p^2c^2 + m^2c^4 \hspace{5mm}\longrightarrow \hspace{5mm}\hat{E}^2 = \hat{p}^2c^2 + m^2 c^4 \hspace{5mm}\longrightarrow \hspace{5mm}\hbar^2 \frac{\partial^2}{\partial t^2}= \hbar^2 c^2\frac{\partial^2}{\partial \vec{x}^2} - m^2c^4 \qquad .
+\end{equation}
+\\Para que la ecuación de Dirac sea consistente con la expresión de energía relativista, la ecuación ($\ref{eq:23}$) debe ser equivalente a la ecuación ($\ref{eq:24}$), lo cual implica que los coeficientes $\alpha^i$ y $\beta$ deben cumplir las siguientes propiedades:
+\begin{equation} \label{eq:25}
+{\alpha^i}^2 = 1  \hspace{1.5cm}, \hspace{1.5cm} \beta^2 = 1 $$\\$$
+\alpha^i \alpha^j + \alpha^j \alpha^i =2 \delta ^{ij}  \hspace{1.5cm}, \hspace{1.5cm} \alpha^i \cdot \beta + \beta \cdot \alpha^i = 0
+\end{equation}
+\\En la tercera ecuación vemos que las matrices $\alpha^i$ anticonmutan entre si y con $\beta$, lo cual es imposible si son escalares o vectores, por lo que deben ser matrices, así que su cuadrado no sería la unidad si no la matriz identidad. De esta forma obtenemos una ecuación matricial, pasando así de un problema con una ecuación de ondas a uno con un sistema de ecuaciones de ondas y con ello, la solución ya no será un escalar, si no que constituye un vector de soluciones denominado espinor.\\
+\\De las relaciones anteriores también podemos deducir que las matrices $\alpha ^i$ y $\beta$ deben ser cuadradas. Además estas igualdades matriciales también deben ser ciertas aplicando la traza y el determinante a ambos lados, a partir de lo cual se puede demostrar que las matrices deben cumplir: 
+\begin{flushleft}
+\hspace{3cm}1. Son matrices de traza nula $\quad$Tr $\beta=$Tr $\alpha^i$ = 0 $\qquad i=1,2,3$\\
+\hspace{3cm}2. Deben tener dimensión par \\
+\hspace{3cm}3. Deben ser hermíticas  $\qquad {\alpha^i}^\dagger=\alpha^i$ , $\beta^\dagger=\beta$
+\end{flushleft}
+\vspace{5mm}
+Estas relaciones de anticonmutación, para matrices 2x2, nos definen las matrices de Pauli. Estas son tres matrices que constituyen una base del espacio algebraico SU(2). Nuestro objetivo es buscar cuatro matrices linealmente independientes para definir las matrices $\alpha^i$, $\beta$. Las matrices de Pauli son solo tres y el hecho de que formen base nos dice que no podemos encontrar otra matriz de dimensión 2 que cumpla los requisitos necesarios. Como ya hemos dicho la dimensión de nuestras matrices debe de ser par, es por ello por lo que nuestras matrices deben tener, como mínimo, dimensión 4.
+\\ \\Considerando las matrices 4x4 podemos encontrar más de cuatro matrices linealmente independientes que cumplen las relaciones de anticonmutación, por lo tanto, tenemos más de una posible elección para estas. Una posible elección es la usada por Dirac que tiene la forma
+\begin{equation} \label{eq:26}
+\alpha^i = 
+\begin{pmatrix}
+0 & \sigma_i  \\
+ \sigma_i & 0
+\end{pmatrix} \hspace{1cm},\hspace{1cm}
+\beta=
+\begin{pmatrix}
+\mathbb{I} & 0 \\
+0 & -\mathbb{I}
+\end{pmatrix}
+\end{equation}
+\\Donde $\sigma_i$ (i=1,2,3) son las matrices de Pauli 2x2 
+\begin{equation} \label{eq:27}
+\sigma_1 = 
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix} \hspace{1cm}
+\sigma_2=
+\begin{pmatrix}
+0 & -i \\
+i & 0
+\end{pmatrix} \hspace{1cm}
+\sigma_3=
+\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix} \qquad,
+\end{equation}\\ \\
+e $\mathbb{I}$ es la matriz identidad 2x2. Como hemos visto, para conseguir una ecuación que sea consistente con la expresión relativista de la energía y que sea de primer orden en las derivadas, necesitamos definir unos coeficientes que algebraicamente deben ser matrices cuadradas de dimensión 4. Esto implica que tenemos una ecuación matricial formada por cuatro ecuaciones acopladas, con lo cual la solución deja de ser una función de onda escalar para ser un spinor de cuatro componentes de la forma
+\begin{equation} \label{eq:28}
+\psi (\vec{x},t) =
+\begin{pmatrix}
+\psi_1 (\vec{x},t) \\ \psi_2 (\vec{x},t) \\ \psi_3 (\vec{x},t) \\ \psi_4(\vec{x},t) 
+\end{pmatrix} \; .
+\end{equation}
+\\Definimos ahora el hermítico conjugado del espinor como la solución a la ecuación
+\begin{equation} \label{eq:29}
+\-i\hbar\frac{\partial}{\partial t} \psi ^\dagger = -i \hbar \frac{\partial}{\partial x^i} \psi^\dagger \alpha^i + m \psi^\dagger \beta \; ,
+\end{equation}
+\\donde
+\begin{equation} \label{eq:30}
+\psi ^\dagger (\vec{x},t) = \left(\psi_1^*(\vec{x},t), \psi_2^*(\vec{x},t),\psi_3^*(\vec{x},t),\psi_4^*(\vec{x},t) \right) \;.
+\end{equation} \\ \\
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Formulación covariante} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+Al igual que para la ecuación de Klein-Gordon, una ecuación relativista debe ser invariante bajo transformaciones Lorentz. Multiplicando la ecuación ($\ref{eq:20}$) por $\beta$ por la izquierda podemos escribirla de la forma
+\begin{equation} \label{eq:31}
+i\hbar \beta \frac{\partial}{\partial t} \psi = \left[- i \hbar (\beta \alpha^i)\frac{\partial}{\partial x^i} + mc \; \right] \psi \qquad ,
+\end{equation}
+\\de tal manera que en la forma covariante,
+\begin{equation} \label{eq:32}
+\left( i \gamma^\mu \frac{\partial}{\partial x^\mu} - mc \; \right)\psi = (\gamma^\mu p_\mu - mc)\psi=0 \qquad ,
+\end{equation}
+\\donde el índice $\mu$ va de 0 a 3. Además se definide las matrices de Dirac, $\gamma^\mu$, como
+\begin{equation} \label{eq:33}
+\gamma^0= \beta \hspace{1cm} , \hspace{1cm}  \gamma^i=\beta \alpha^i \hspace{1cm} , \hspace{1cm} i=1,2,3\qquad .
+\end{equation} \\ 
+A partir de las propiedades obtenidas que satisfagan las matrices $\alpha^i$ y $\beta$ se puede demostrar que de forma general las matrices $\gamma$ deben cumplir las relaciones de anticonmutación
+\begin{equation} \label{eq:34}
+\gamma^\mu \gamma^\nu + \gamma^\nu \gamma^\mu =2g^{\mu \nu} \qquad , \qquad \gamma_\mu \gamma_\nu + \gamma_\nu \gamma_\mu =2g_{\mu \nu} \qquad .
+\end{equation} \\
+Es interesante para cálculos posteriores introducir la definición de espinor adjunto $\bar{\psi}$ que viene dada por
+\begin{equation} \label{eq:35}
+\bar{\psi} \left( \gamma^\mu p_\mu + mc\right)=0 \qquad ,
+\end{equation}
+\\y que escrita en función de los componentes de (\ref{eq:28})
+\begin{equation} \label{eq:36}
+\bar{\psi} (\vec{x},t)= \psi^\dagger (\vec{x},t) \beta =\left( \psi_1^*(\vec{x},t),\psi_2^*(\vec{x},t),-\psi_3^*(\vec{x},t),-\psi_4^*(\vec{x},t)\right) \qquad .
+\end{equation} \\ 
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Las matrices gamma} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+En la sección anterior hemos introducido las matrices $\gamma^\mu$ tal que satisfagan (\ref{eq:33}). Esta definición es independiente de la representación elegida para las matrices $\alpha^i$ y $\beta$, además, también hemos visto en (\ref{eq:34}) que aunque el superíndice de las $\alpha^i$ solo indicaba el producto escalar con el momento, $\vec{p}$, mientras que en las matrices $\gamma^\mu$ además nos dice como se transforma bajo transformaciones Lorentz. Por tanto podemos pasar de convariante a contravariante por medio de la métrica.
+\begin{equation} \label{eq:37}
+\gamma^\mu = g^{\mu \nu} \gamma_\nu \quad.
+\end{equation}
+Al igual que con $\alpha^i$ y $\beta$ tenemos más de una posible elección para las matrices $\gamma^\mu$ que cumpla la relación (\ref{eq:33}). El conjunto de las posibles representaciones constituye un espacio algebraico denominado álgebra de Clifford. \\ \\
+A partir de las cuatro matrices definidas explicitamente para la representación utilizada en (\ref{eq:26}) podemos construir las demás. A partir de (\ref{eq:34}) se puede demostrar que el producto de una de las matrices por si misma da la identidad, lo cual implica que solo productos de elementos distintos nos dan matrices linealmente independientes. Por otro lado, las relaciones de anticonmutación nos dicen que el orden del producto tampoco influye, de modo que el número de elementos que podemos generar con estas prescripciones combinando cuatro elementos es $2^4-1$, además de la identidad
+\begin{equation} \label{eq:38}
+\mathbb{I} $$\\$$ \gamma^0 \hspace{7mm} , \hspace{7mm} i\gamma^1 \hspace{7mm} , \hspace{7mm} i\gamma^2 \hspace{7mm} , \hspace{7mm} i\gamma^3 $$\\$$ \gamma^0\gamma^1 \hspace{7mm} , \hspace{7mm} \gamma^0\gamma^2 \hspace{7mm} , \hspace{7mm} \gamma^0\gamma^3 \hspace{7mm} , \hspace{7mm} i\gamma^1\gamma^2 \hspace{7mm} , \hspace{7mm} i\gamma^2\gamma^3 \hspace{7mm} , \hspace{7mm} i\gamma^3\gamma^1 $$\\$$ i\gamma^0\gamma^1\gamma^2 \hspace{7mm} , \hspace{7mm} i\gamma^0\gamma^2\gamma^3 \hspace{7mm} , \hspace{7mm} i\gamma^0\gamma^3\gamma^1 \hspace{7mm} , \hspace{7mm} \gamma^1\gamma^2\gamma^3 $$\\$$ i\gamma^0\gamma^1\gamma^2\gamma^3 \equiv i \gamma^5 \; ,
+\end{equation} \\
+donde hemos definido $\gamma^5$ que es de especial interés para el estudio de la quiralidad. \\ \\
+Estas dieciséis combinaciones forman una base del álgebra de Clifford denotada por $\Gamma_i$ (i=1,2,...,16) que cumple
+\begin{flushleft}
+\hspace{1.5cm} · $\Gamma_i \Gamma_j = a_{ij} \Gamma^k \hspace{2cm} a_{ij}= \pm 1 , \pm i \quad si \quad i\neq j$ \\
+\hspace{1.5cm} · $\Gamma_i \Gamma_j = \mathbb{I} \hspace{3cm} si \quad i=j.$
+\end{flushleft} \vspace{5mm}
+Lo cual nos da una estructura de grupo bajo la operación de producto, a partir de lo cual se pueden demostrar cuatro teoremas que son de gran importancia para el estudio del comportamiento de los espinores bajo inversión temporal, conjugación de carga y paridad.
+\begin{enumerate}
+\item Tr($\Gamma_i$)=0 si $\Gamma_i \neq \mathbb{I}$ 
+\item $\sum_{i} a_i \Gamma_i=0$ si $a_i=0$ $\forall$ i 
+\item Cualquier matriz que conmute con $\gamma^\mu$ $\forall \mu$ es múltiplo de la identidad 
+\item Dadas 2 matrices $\gamma^\mu$ cualesquiera, siempre se pueden relacionar por medio de una transformación unitaria S
+\end{enumerate} 
+Este último teorema constituye Teorema Fundamental de Pauli y es el que permite estudiar el comportamiento de los espinores ante inversión temporal conjugación de carga y paridad. \\ \\
+\textbf{Elección de la representación de las matrices de Dirac} \\ \\
+Como veremos la representación de Dirac, dada por (\ref{eq:26}), es óptima para partículas con masa y espín bien definido, pero en otros casos, como el de partículas ultrarelativistas por ejemplo, es más interesante una representación que diagonalice $\gamma^5$. \\ \\
+Para la representación de Dirac se puede demostrar que las matrices $\gamma^\mu$ son antihermíticas, menos $\gamma^0$ que es hermítica. Esta propiedad se puede escribir de forma compacta como
+\begin{equation} \label{eq:39}
+{\gamma^\mu}^\dagger = \gamma^0 \gamma^\mu \gamma^0
+\end{equation}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Conservación de la corriente}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+La motivación inicial de la ecuación de Dirac era encontrar una densidad de probabilidad como la que teníamos en la formulación de la mecánica cuántica no relativista, es por ello por lo que es importante obtener para esto un resultado físicamente coherente. \\ \\
+De manera análoga al procedimiento seguido con la ecuación de Klein-Gordon multiplicamos la ecuación (\ref{eq:32}) por $\bar{\psi}$ por la izquierda y la ecuación (\ref{eq:35}) por $\psi$ por la derecha y sumamos nos queda
+\begin{equation} \label{eq:40}
+\frac{\partial}{\partial x^\mu} \left( \bar{\psi}\gamma^\mu \psi \right)=0 \qquad ,
+\end{equation}
+o lo que es lo mismo separando coordenadas espaciales y temporales
+\begin{equation} \label{eq:41}
+\frac{\partial}{\partial t} (\psi^\dagger \psi)+ \vec{\nabla}(\psi^\dagger\vec{\alpha}\psi) = 0 \qquad .
+\end{equation}
+De este modo hemos obtenido una ecuación de continuidad y podemos definir la densidad de probabilidad y la densidad de corriente como
+\begin{equation} \label{eq:42}
+\rho=\psi^\dagger \psi \hspace{3cm} \vec{j}=\psi^\dagger \vec{\alpha} \psi \qquad ,
+\end{equation} \\ 
+o bien
+\begin{equation} \label{eq:43}
+j^\mu = (c \rho, \vec{j}) = (c \psi^\dagger \psi, \psi^\dagger \vec{\alpha} \psi) \qquad ,
+\end{equation} \\ \\
+donde $\vec{\alpha}=(\alpha^1 , \alpha^2 , \alpha^3)$. La existencia de una ecuación de continuidad para la ecuación de Dirac sin campo externo nos dice que no existen fuentes y sumideros en los que se creen o destruyan partículas. Como esperábamos se obtiene una densidad de probabilidad definida positiva. \\
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Solución de Dirac para una partícula libre en reposo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+Al igual que la ecuación de Klein-Gordon la ecuación de Dirac también admite soluciones de ondas planas de forma general
+\begin{equation} \label{eq:44}
+\psi(\vec{x},t)=u(\vec{p})e^{-\frac{i}{\hbar}(\vec{p} \cdot \vec{x} - E \cdot t)}  \hspace{2cm} E=\sqrt{p^2c^2 + m^2c^4} \qquad ,
+\end{equation} \\ 
+donde $u(\vec{p})$ es un espinor de cuatro componentes independiente de las coordenadas espacio-temporales. Para el problema en reposo, $\vec{p}=0$, tiene la forma\\
+\begin{equation} \label{eq:45}
+\psi_{\vec{p}=0}(\vec{x},t)=u(0)e^{+\frac{i}{\hbar} E \cdot t}  \hspace{2cm} E= \pm mc^2 \qquad ,
+\end{equation} \\
+\\La ecuación de Dirac admite solución de onda plana para la partícula libre para cada una de las componentes del espinor, pero no hemos dicho nada acerca de la solución espinorial. El hecho de analizar primero el problema en reposo es debido a que como veremos, podemos escribir la solución en términos de espinores de Pauli de dos componentes \\
+\begin{equation} \label{eq:46}
+\psi_{\vec{p}=0}(\vec{x},t) = u(0) e^{\frac{i}{\hbar}E \cdot t} =
+\begin{pmatrix}
+u_a(0) \\ u_b (0)
+\end{pmatrix} e^{\frac{i}{\hbar}E \cdot t}
+\hspace{1.5cm} / \hspace{1.5cm}
+u_a(0) \; ,\; u_b(0)=\left\lbrace
+\begin{pmatrix}
+1 \\ 0
+\end{pmatrix},
+\begin{pmatrix}
+0 \\ 1
+\end{pmatrix} 
+\right\rbrace \quad .
+\end{equation}\\
+Donde $u_A$ y $u_B$ son espinores de Pauli y que en el formalismo de Dirac constituyen las denominadas componentes mayores y menores respectivamente del espinor de cuatro componentes. La ecuación de Dirac en reposo tiene la forma
+\begin{equation} \label{eq:47}
+i \gamma^0 \partial_0 \psi = -\frac{mc}{\hbar} \psi \qquad \qquad \rightarrow \qquad \qquad i \hbar \frac{\partial}{\partial t} \psi = - \beta mc^2 \psi \equiv \hat{H}\psi
+\end{equation} \\
+Sustituyendo la solución (\ref{eq:46}) en la expresión anterior obtenemos un sistema de ecuaciones para las componentes mayores y menores.
+\begin{equation} \label{eq:48}
+\pm \frac{mc^2}{c \hbar}
+\begin{pmatrix}
+\mathbb{I} & 0 \\ 0 & -\mathbb{I}
+\end{pmatrix}
+\begin{pmatrix}
+u_a \\ u_b
+\end{pmatrix} =
+\frac{m c}{\hbar}
+\begin{pmatrix}
+u_a \\u_b
+\end{pmatrix} \qquad,
+\end{equation} \\
+donde el signo $\pm$ es debido a los dos posibles signos de la energía $E= \pm mc^2$. De esta forma obtenemos un sistema algebraico de dos ecuaciones acopladas. Para el caso en que $E=+mc^2$ obtenemos una solución distinta de la trivial en el caso que $u_b=0$ y del mismo modo para el caso $E=-mc^2$ la solución distinta de la trivial es aquella en la que $u_a=0$. De esta forma las cuatro posibles soluciones con
+\begin{equation} \label{eq:49}
+E=+mc^2 \hspace{1cm} \rightarrow \hspace{1cm} u_b=
+\begin{pmatrix}
+0 \\ 0
+\end{pmatrix} \hspace{5mm} \hspace{5mm}, 
+u_a=\left\lbrace
+\begin{pmatrix}
+1 \\ 0
+\end{pmatrix},
+\begin{pmatrix}
+0 \\ 1
+\end{pmatrix} 
+\right\rbrace $$\\$$
+E=-mc^2 \hspace{1cm} \rightarrow \hspace{1cm} u_a=
+\begin{pmatrix}
+0 \\ 0
+\end{pmatrix} \hspace{5mm} , \hspace{5mm}
+u_b=\left\lbrace
+\begin{pmatrix}
+1 \\ 0
+\end{pmatrix},
+\begin{pmatrix}
+0 \\ 1
+\end{pmatrix} 
+\right\rbrace .
+\end{equation} \\
+Si reconstruimos con las cuatro combinaciones posibles de los espinores de Pauli, obtenemos los cuatro espinores solución de la ecuación de Dirac en reposo
+\begin{equation} \label{eq:50}
+\psi(\vec{x},t) =
+\begin{pmatrix}
+1 \\ 0 \\ 0 \\ 0
+\end{pmatrix}e^{-imc^2t}, \qquad
+\psi(\vec{x},t) =
+\begin{pmatrix}
+0 \\ 1 \\ 0 \\ 0
+\end{pmatrix}e^{-imc^2t}, \qquad
+\psi(\vec{x},t) =
+\begin{pmatrix}
+0 \\ 0 \\ 1 \\ 0
+\end{pmatrix}e^{+imc^2t}, \qquad
+\psi(\vec{x},t) =
+\begin{pmatrix}
+0 \\ 0 \\ 0 \\ 1
+\end{pmatrix}e^{+imc^2t}.
+\end{equation}
+Como vemos hay cuatro posibles soluciones diferentes para la misma ecuación. El hecho de que hayamos identificado el hamiltoniano con $\beta mc^2$ hace que podamos identificar las dos primeras soluciones con autoestados de energía positiva, mientras que los dos últimos serían de energía negativa. Por otro lado el hecho de que los espinores de Pauli sean autoestados de espín hace que podamos relacionar la primera y tercera solución con autoestados de espín $S_3=+\hbar/2$ y la segunda y la cuarta con autoestados de espín $S_3=-\hbar/2$. De este modo podemos constuir el operador de espín $S_3$, para espinores de cuatro componentes, de forma matricial como
+\begin{equation} \label{eq:51}
+\hat{S_3} \equiv \frac{\hbar}{2}\Sigma_3 = \frac{\hbar}{2} \begin{pmatrix}
+\sigma_3 & 0 \\ 0 & \sigma_3
+\end{pmatrix} \qquad ,
+\end{equation} \\ \\
+siendo $\Sigma_3$ una de las matrices de Pauli de cuatro componentes, que se definen como
+\begin{equation}\label{eq:52}
+\Sigma_i =  \begin{pmatrix} \sigma_i & 0 \\ 0 & \sigma_i \end{pmatrix} \qquad .
+\end{equation}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Solución de Dirac para una partícula libre en movimiento}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+Una vez que hemos visto la interpretación de las soluciones de la ecuación de Dirac en reposo y la validez del significado probabilístico vamos a estudiar la solución libre. Del mismo modo que en el apartado anterior sustituyendo la solución de onda plana en componentes mayores y menores en la ecuación (\ref{eq:21})
+\begin{equation} \label{eq:53}
+\psi = \begin{pmatrix}
+u_a (\vec{p}) \\ u_b (\vec{p})
+\end{pmatrix} e^{-\frac{i}{\hbar}(\vec{p}\cdot \vec{x}- E \cdot t)} \hspace{2cm} E=\pm (p^2c^2 + m^2c^4)^\frac{1}{2} \quad ,
+\end{equation} \\ \\
+de modo que sustituyendo en (\ref{eq:21}) y usando la representación de Dirac obtenemos una ecuación para los espinores
+\begin{equation} \label{eq:54}
+\begin{pmatrix}
+-mc & -i \vec{\sigma}\vec{p} \\ i\vec{\sigma}\vec{p} & mc
+\end{pmatrix}
+\begin{pmatrix}
+u_a (\vec{p}) \\ u_b (\vec{p})
+\end{pmatrix}= E
+\begin{pmatrix}
+u_a(\vec{p}) \\ u_b(\vec{p})
+\end{pmatrix} \quad .
+\end{equation} \\ \\
+De donde podemos obtener una relación entre las componentes mayores y menores para cada uno de los autovalores de la energía
+\begin{equation} \label{eq:55}
+E=+\sqrt{p^2c^2+m^2c^4} \equiv E_+ \hspace{2cm} u_b(\vec{p})=\frac{e}{E_+ + mc^2}(\vec{\sigma} \cdot \vec{p})u_a(\vec{p}) $$\\$$ 
+E=-\sqrt{p^2c^2+m^2c^4} \equiv E_- \hspace{2cm} u_a(\vec{p})=\frac{e}{E_- + mc^2}(\vec{\sigma} \cdot \vec{p})u_b(\vec{p}) \quad.
+\end{equation} \\ \\
+Sustituyendo para la ecuación de energía positiva los espinores de Pauli en $u_a(\vec{p})$ obtenemos las componentes menores del espinor y del mismo modo en la ecuación de energía negativa sustituyendo en $u_b(\vec{p})$ obtenemos las componentes mayores. Reescribiendo todas las combinaciones en función de espinores de cuatro componentes vemos que las cuatro soluciones son
+\begin{equation} \label{eq:56}
+u(\vec{p})=\begin{pmatrix}
+1 \\ 0 \\ \frac{p_3 c}{E_+ + mc^2} \\ \frac{p_1 c + ip_2 c}{E_+ + mc^2}
+\end{pmatrix}, \quad
+u(\vec{p})=\begin{pmatrix}
+0 \\ 1  \\ \frac{p_1 c + ip_2 c}{E_+ + mc^2}\\ \frac{p_3 c}{E_+ + mc^2}
+\end{pmatrix}, \quad
+u(\vec{p})=\begin{pmatrix}
+\frac{-p_3 c}{E_- +mc^2} \\ \frac{-p_1 c - ip_2 c}{E_- + mc^2}  \\ 1\\ 0
+\end{pmatrix}, \quad
+u(\vec{p})=\begin{pmatrix}
+\frac{p_1 c + ip_2 c}{E_- + mc^2}\\ \frac{p_3 c}{E_- + mc^2} \\ 0 \\ 1  
+\end{pmatrix},
+\end{equation}
+y por lo tanto las funciones de onda
+\begin{equation} \label{eq:57}
+\psi(\vec{x},t)=N\begin{pmatrix}
+1 \\ 0 \\ \frac{p_3 c}{E_+ + mc^2} \\ \frac{p_1 c + ip_2 c}{E_+ + mc^2}
+\end{pmatrix} e^{\frac{-i}{\hbar}(\vec{p}\cdot \vec{x}- E_+ t)} \qquad
+\psi(\vec{x},t)=N\begin{pmatrix}
+0 \\ 1  \\ \frac{p_1 c + ip_2 c}{E_+ + mc^2}\\ \frac{p_3 c}{E_+ + mc^2}
+\end{pmatrix} e^{\frac{-i}{\hbar}(\vec{p} \cdot \vec{x}- E_+ t)} \quad $$\\$$
+\psi(\vec{x},t)=N\begin{pmatrix}
+\frac{+p_3 c}{E_- - mc^2} \\ \frac{p_1 c+ip_2 c}{E_- - mc^2}  \\ 1\\ 0
+\end{pmatrix} e^{\frac{-i}{\hbar}(\vec{p} \cdot \vec{x} - E_- t)} \qquad
+\psi(\vec{x},t)=N\begin{pmatrix}
+\frac{-p_1 c- ip_2 c}{E_- - mc^2}\\ \frac{-p_3 c}{E_- - mc^2} \\ 0 \\ 1  
+\end{pmatrix} e^{\frac{-i}{\hbar}(\vec{p} \cdot \vec{x} - E_- t)} \quad ,
+\end{equation}
+donde N es una constante de normalización. Existen dos posibles normalizaciones habituales para las funciones de onda \\
+\begin{equation} \label{eq:58}
+· \quad \psi^\dagger \psi =u(\vec{p})^\dagger u(\vec{p})=1 \hspace{1cm} \rightarrow \hspace{1cm} N=\sqrt{(E_+ + mc^2)/2E_+} $$\\$$
+· \quad \psi^\dagger \psi = u(\vec{p})^\dagger u(\vec{p})= E_+ /mc^2 \hspace{1cm} \rightarrow \hspace{1cm} N=\sqrt{(E_+ + mc^2)/ 2mc^2} \quad.
+\end{equation} \\
+%CHAPUZA DEBAJO -> (55)
+Las soluciones que hemos obtenido para la partícula libre en movimiento son autoestados de energía con autovalores $\pm E$ y autoestados del operador momento con autovalor $\vec{p}$ como era de esperar, pero ya no son autoestados del operador de espín $\hat{S_3}$ tal cual lo hemos definido en (\ref{eq:51}) a menos que, como vemos de (55), tomemos como dirección del momento $\vec{p}=(0,0,p_3)$. Esto nos dice que aunque las soluciones de partícula libre con $\vec{p}\neq 0$ no tienen espín bien definido, podemos definir un operador que nos de la proyección de espín en la dirección del momento. Este operador se denomina helicidad y viene dado por
+\begin{equation} \label{eq:59}
+\Lambda = \frac{\vec{\sigma} \cdot \vec{p}}{|\vec{p}|} \hspace{3cm} \hat{\Lambda} \psi_{libre} = \pm  \psi_{libre}
+\end{equation} \\ \\
+donde $\vec{\sigma}=(\sigma^1,\sigma^2,\sigma^3)$ es un vector cuyas componentes son las matrices de Pauli ya vistas en (\ref{eq:28}).
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Acoplamiento con un campo electromagnético} %BETHE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+El acoplamiento entre las partículas descritas por la ecuación de Dirac y un campo electromagnético externo se hace introduciendo en la ecuación el potencial vector  por medio de la sustitución
+\begin{equation} \label{eq:60}
+p_\mu \hspace{2cm} \rightarrow \hspace{2cm} p^{'}_\mu=p_\mu - \frac{e}{c} A_\mu \qquad ,
+\end{equation} \\ \\
+donde $p_\mu$ es el cuadrimomento y $A_\mu$ es el potencial vector del cuadrivector del campo electromagnético presente. La introducción del campo de esta forma se denomina \textit{acoplamiento-mínimo}, y asegura la invariancia gauge del potencial. Además hemos introducido de forma externa un valor para la intensidad de carga electromagnética de las partículas de valor e. De esta forma la ecuación queda \\ \\
+\begin{equation} \label{eq:61}
+\left[\gamma^\mu \left(p_\mu - \frac{e}{c}A_\mu \right)\right]\psi(\vec{x},t)=mc\psi(\vec{x},t) \qquad .
+\end{equation} \\ \\
+Esta ecuación contiene toda la información de la interacción de la partícula con un campo electromagnético externo, pero no de forma explícita, para que así sea multiplicamos la ecuación por sí misma aceptando términos cruzados, de modo que obtenemos una ecuación de segundo orden en derivadas espacio-temporales.
+\begin{equation} \label{eq:62}
+\gamma^\nu \gamma^\mu \left(p_\nu - \frac{e}{c}A_\nu \right)\left(p_\mu - \frac{e}{c}A_\mu \right)\psi(\vec{x},t)=m^2c^2 \psi(\vec{x},t) \qquad .
+\end{equation} \\ \\
+Que también se puede escribir como:
+\begin{equation} \label{eq:63}
+(g^{\mu \nu}-i\sigma_{\mu \nu})\left(p_\mu - \frac{e}{c}A_\mu \right) \left(p_\nu - \frac{e}{c}A_\nu \right)\psi(\vec{x},t)=m^2c^2\psi(\vec{x},t) \qquad ,
+\end{equation} \\ \\
+donde hemos definido
+\begin{equation} \label{eq:64}
+\sigma^{\mu\nu}= \frac{i}{2}\left[\gamma^\mu \gamma^\nu - \gamma^\nu \gamma^\mu \right] \qquad , {}
+\end{equation} \\
+y que cumple que
+\begin{equation} \label{eq:65}
+\Sigma_k=\epsilon_{ijk} \sigma^{ij} \quad , \quad \sigma^{\mu \nu}=\frac{1}{2}(\sigma^{\mu \nu} - \sigma^{\nu \mu}) \qquad ,
+\end{equation} \\ \\
+siendo $\Sigma_k$ las matrices de Pauli de dimensiones 4x4, definidas en (\ref{eq:27}). De modo que desarrollando el miembro de la izquierda de (\ref{eq:63}) con la expresión anterior obtenemos
+\begin{equation} \label{eq:66}
+\left(p_\mu - \frac{e}{c}A_\mu \right)\left(p^\mu - \frac{e}{c}A^\mu \right)-\frac{i}{2} \left(\sigma^{\mu \nu}- \sigma^{\nu \mu} \right)\left(p_\mu - \frac{e}{c}A_\mu \right)\left(p_\nu - \frac{e}{c}A_\nu \right) = $$\\$$ = \left(p_\mu - \frac{e}{c}A_\mu \right)\left(p^\mu - \frac{e}{c}A^\mu \right)-\frac{i}{2}\sigma^{\mu \nu}\left[\left(p_\mu - \frac{e}{c}A_\mu \right),\left(p_\nu - \frac{e}{c}A_\nu \right) \right] \qquad .
+\end{equation} \\ \\
+Teniendo en cuenta que $[p_\mu,p_\nu]=[A_\mu, A_\nu]=0$, el conmutador de la expresión anterior se puede escribir como 
+\begin{equation} \label{eq:67}
+\left[(p_\mu - \frac{e}{c}A_\mu),(p_\nu - \frac{e}{c}A_\nu) \right] = -i \frac{e \hbar}{c} ( \partial_\mu A_\nu - \partial_\nu A_\mu)=-i \frac{e \hbar}{c} F_{\mu \nu} \qquad ,
+\end{equation} \\ \\
+donde $F_{\mu \nu}$ es el tensor electromagnético de Maxwell cuyos elementos son las componentes de los campos electromagnéticos. Este tensor además es antisimétrico, por lo que lo podemos definir completamente con las componentes
+\begin{equation} \label{eq:68}
+F_{0i}=-\textbf{E}_i  \hspace{1cm}, \hspace{1cm} F_{ij}=-\epsilon_{ijk}\textbf{H}_k  \hspace{2.5cm} i,j,k=1,2,3
+\end{equation} \\ \\
+Utilizamos la notación en negrita para no confundir el campo eléctrico con la energía. Sustituyendo el resultado obtenido en (\ref{eq:67}) en (\ref{eq:63})
+\begin{equation} \label{eq:69}
+\left[ (p_\mu - \frac{e}{c}A_\mu)(p^\mu - \frac{e}{c}A^\mu) - i \frac{e \hbar}{c}\sigma^{\mu \nu}F_{\mu \nu} \right] \psi(\vec{x},t)=m^2c^2 \psi(\vec{x},t) \qquad .
+\end{equation} \\ \\
+usando una de las propiedades de $\sigma^{\mu \nu}$ de (\ref{eq:65}) podemos ver que el producto de este con $F_{\mu \nu}$ se puede descomponer como
+\begin{equation} \label{eq:70}
+\sigma^{0 i} F_{0 i}= \alpha^i \textbf{E}_i \hspace{1.5cm}, \hspace{1.5cm} \sigma^{i j} F_{i j}=\epsilon_{ijk} \Sigma^k \textbf{H}_k
+\end{equation} \\ \\
+donde i,j,k=1,2,3. Los demás términos del producto son nulos por ser $F_{\mu \nu}$ antisimétrico. Finalmente la ecuación (\ref{eq:69}) desarrollada queda
+\begin{equation} \label{eq:71}
+\left[ \left(i \hbar \frac{\partial}{\partial t} - e \phi\right)^2 - \left( \frac{e \hbar}{c} \vec{\nabla} - e \vec{A}\right)^2 +  \textit{k} \cdot e \hbar c(\vec{\Sigma}\cdot \vec{\textbf{H}} - i \vec{\alpha} \cdot \vec{\textbf{E}})\right]\psi(\vec{x},t)=m^2c^4 \psi(\vec{x},t) \qquad ,
+\end{equation} \\ \\
+la variable $\textit{k}$ es una constante añadida de forma externa para ajustar el factor giromagnético de la interacción espín órbita (en el caso de los electrones no es necesario añadirlo), lo cual está permitido al no afectar a la invariancia gauge. \\ \\
+El hecho de que hayamos multiplicado la ecuación por si misma para el estudio del acoplamiento con un campo externo, es debido a que no basta con introducir en la ecuación de Dirac los potenciales electromagnéticos en acoplamiento mínimo  para obtener una ecuación que describa el comportamiento de partículas de espín 1/2, si no que además es necesario obtener una ecuación de segundo orden en derivadas espacio-temporales para que aparezcan explicitamente todos los términos. \\ \\
+Continuamos con el límite no relativista del problema, para ello es necesario usar la representación de Dirac(de forma que la matriz $\beta$ sea diagonal), aunque es la representación que hemos asumido hasta ahora. Escribimos la ecuación de Dirac, ahora también, de la forma (\ref{eq:71}), con la separación explicita entre las coordenadas espaciales y temporales, como una ecuación matricial para las componentes mayores y menores del espinor $\psi$ de cuatro componentes. Si además asumimos el potencial como estático tenemos
+\begin{equation} \label{eq:72}
+\begin{pmatrix}
+E - e\phi - mc^2 & -\sigma^i(cp_i - e A_i) \\ -\sigma^i(cp_i - eA_i) & E - e\phi + mc^2
+\end{pmatrix} \begin{pmatrix}
+u_a (\vec{p})\\ u_b(\vec{p})
+\end{pmatrix} = 0 \qquad ,
+\end{equation} \\ \\
+que se puede escribir como un sistema de dos ecuaciones acopladas
+\begin{equation} \label{eq:73}
+\sigma^i (cp_i - eA_i)u_b - mc^2 u_a = (E- e\phi) u_a $$\\$$
+\sigma^i (cp_i - eA_i)u_a + mc^2 u_b = (E - e\phi)u_b \qquad .
+\end{equation} \\ \\
+Hacemos el cambio $E=E' + mc^2$ y despejamos $u_b$ de la segunda ecuación y sustituimos en la primera, de modo que obtengamos una ecuación de segundo orden desacoplada para las componentes mayores
+\begin{equation} \label{eq:74}
+\frac{1}{2mc^2}\sigma^i(cp_i - eA_i)\left(1 + \frac{E-e\phi}{2mc^2}\right)^{-1} \sigma^i(cp_i - eA_i) u_a=(E' - e\phi)u_a \qquad.
+\end{equation} \\ \\
+Los cálculos hechos hasta ahora son exactos. Reescribimos la ecuación anterior con la aproximación de régimen no relativista
+\begin{equation} \label{eq:75}
+E'<<mc^2 \hspace{1cm}, \hspace{1cm} e\phi <<mc^2  \quad \rightarrow \quad \frac{E-e \phi}{2mc^2}\simeq 0 \qquad ,
+\end{equation} \\ \\
+además despreciamos términos proporcionales a (v/c), por lo que las componentes menores, $u_b\propto (v/c)u_a$, son nulas. Con esto la ecuación en aproximación no relativista es
+\begin{equation} \label{eq:76}
+\left[\frac{1}{2m}\left( \vec{p} - \frac{e}{c}\vec{A}\right)^2 + e \phi - \frac{e \hbar}{2mc} \vec{\sigma}\cdot\vec{\textbf{H}} \right] u_A(\vec{x},t)=E' \; u_A(\vec{x},t) \qquad .
+\end{equation} \\ \\
+Esta es la ecuación de Pauli para espinores de dos componentes para tener en cuenta el espín en la cuántica no relativista. El término con el campo magnético constituye la energía de interacción dipolar magnética con un factor giromagnético de valor 2 de manera natural, el cual es propio de los electrones. Al igual que antes, podemos introducir una factor $k$ para ajustar el valor del factor giromagnético al valor experimental para otras partículas. \\ \\
+Otra aproximación interesante para un campo electroestático constante ($\vec{A}=0$) consiste en realizar lo mismo, pero manteniendo ahora los términos proporcionales a $(v^2/c^2)$, por lo que 
+\begin{equation} \label{eq:77}
+\left(1 + \frac{E-e\phi}{2mc^2}\right)^{-1} \simeq \left(1 - \frac{E-e\phi}{2mc^2}\right) \qquad .
+\end{equation} \\ \\
+Si además el potencial tiene simetría esférica, $V(\vec{x})=V(r)$, y añadimos la condición de que $E'-V \simeq p^2/2m$
+\begin{equation} \label{eq:78}
+\left[\frac{p^2}{2m} + V \frac{p^4}{8m^3c^2} - \frac{\hbar^2}{4m^2c^2}\frac{d V}{dr}\frac{\partial}{\partial r}+ \frac{1}{2m^2c^2}\frac{1}{r} \frac{dV}{dr} \vec{S} \cdot \vec{L}\right] u_a(\vec{x},t)=E' \; u_a(\vec{x},t) \qquad .
+\end{equation} \\ \\
+Los dos primeros términos están presentes en la ecuación de Schrodinger. El tercer término es una corrección relativista de la energía cinética y el cuarto es un término sin análogo clásico. El último término es la contribución de la interacción espín-órbita. \\ \\
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Potencial central. Átomo de Hidrógeno}    %SAKURAI
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+En la mecánica cuántica no relativista, el momentos angular es una constante del movimiento, así como la proyección de spin en la dirección de momento angular
+\begin{equation} \label{eq:79}
+\vec{J}=cte \hspace{1.5cm}, \hspace{1.5cm} \vec{\sigma}\cdot \vec{J}=\vec{\sigma}(\vec{L}+ \frac{\hbar}{2} \vec{\sigma})=\frac{1}{\hbar}(J^2 + L^2 + \frac{3}{4}\hbar^2)=cte \qquad .
+\end{equation} \\ \\
+Estas dos cantidades nos dan dos números cuánticos con los que podemos caracterizar los estados en un potencial central. \\ \\
+En la mecánica cuántica relativista podemos definir una generalización de la proyección de spin en la dirección de momento angular con matrices 4x4 como $\vec{\Sigma} \cdot \vec{J}$ o también como $\beta \vec{\Sigma} \cdot \vec{J}$, donde hemos introducido $\beta$ por futura conveniencia, y no afecta al tener el mismo límite clásico que el primero. 
+\\ \\En un potencial central el hamiltoniano del sistema es de la forma
+\begin{equation} \label{eq:80}
+H=c \vec{\alpha} \cdot \vec{p} + \beta mc^2 + V(r) \qquad ,
+\end{equation}
+siendo el conmutador del operador que hemos definido con este hamiltoniano
+\begin{equation} \label{eq:81}
+[H,\beta \vec{\Sigma}\cdot \vec{J}]=[H,\beta]\vec{\Sigma}\cdot\vec{J}+\beta[H,\vec{\Sigma}]\vec{J}=2c\beta(\vec{\alpha}\cdot\vec{p}) + 2ic\beta(\vec{\alpha}\wedge \vec{p})\vec{J}= $$\\$$= 2c\beta \gamma_5 \vec{p} \cdot \vec{J}-2ic\beta \vec{\alpha}(\vec{p}\wedge \vec{J})+ 2ic\vec{p}(\vec{\alpha} \wedge \vec{p})\vec{J}= 2c\beta \gamma_5 \vec{p}(\vec{L} + \frac{\hbar}{2}\Sigma)=\frac{\hbar}{2}[H, \beta] \qquad .
+\end{equation}  \\ \\
+Al no ser nulo sabemos que $\beta \vec{\Sigma}\cdot\vec{J}$ no es una constante ya que su evolución temporal es proporcional al conmutador con el hamiltoniano, aún así, a partir de este resultado podemos definir un operador que sí sea una constante
+\begin{equation} \label{eq:82}
+\left[H, \beta \vec{\Sigma}\cdot \vec{J}\right]=\left[H, \frac{\hbar}{2}\beta\right] \hspace{2cm} \rightarrow \hspace{2cm} \left[H, \beta\left(\vec{\Sigma}\cdot \vec{J}-\frac{\hbar}{2}\right)\right]=0 $$\\$$ K \equiv \beta\left(\vec{\Sigma}\cdot \vec{J}-\frac{\hbar}{2}\right)=\beta\left(\vec{\Sigma}\cdot \vec{L} + \hbar\right) \qquad . 
+\end{equation} \\ \\
+Por lo tanto, podemos caracterizarlo un electrón en un potencial por medio de un estado que sea propio de los operadores $H$ $K$ $J^2$ y $J_3$ simultaneamente. \\ \\ \\ \\
+\textbf{Valores propios del operador K} \\ \\
+La actuación del operador K sobre un estado propio viene dada por
+\begin{equation} \label{eq:83}
+K |\psi> = k \hbar |\psi> \qquad .
+\end{equation} \\ \\
+A partir de relacionarlo con el momento angular $\vec{J}$, podemos ver los posibles autovalores del operador $K$, $k$, en función del número cuántico j
+\begin{equation} \label{eq:84}
+K^2 = [\beta(\vec{\Sigma}\cdot \vec{L} + \hbar)]^2 = L^2 + i\vec{\Sigma}(\vec{L} \wedge \vec{L}) + 2\hbar \Sigma \cdot \vec{L} + \hbar^2=J^2+ \frac{1}{4} \hbar^2 \qquad,
+\end{equation} \\ \\
+por lo que en términos de autovalores de los operadores
+\begin{equation} \label{eq:85}
+\hbar^2 k^2 = j(j+1)\hbar^2 + \frac{1}{4}\hbar^2=(j+\frac{1}{2})^2 \hbar^2
+\end{equation} \\ \\
+de modo que
+\begin{equation} \label{eq:86}
+k= \pm(j + \frac{1}{2}) \qquad .
+\end{equation} \\ \\
+De modo que $K$ es un operador escalar que actuando sobre autoestados de $J^2$ y $J_3$ tiene valor negativo si la dirección del espín es paralela a la del momento angular y valor positivo si es antiparalela. Explicitamente el operador K viene dado por
+\begin{equation} \label{eq:87}
+K= \begin{pmatrix}
+\vec{\sigma} \cdot \vec{L} + \hbar & 0 \\ 0 & - \vec{\sigma} \cdot \vec{L} - \hbar
+\end{pmatrix} \qquad . 
+\end{equation} \\ \\
+Por lo tanto para un autoestado del hamiltoniano que sea también autoestado de $K$, $J^2$ y $J_3$ simultáneamente, con componentes mayores y menores $u_a$ y $u_b$ respectivamente, entonces
+\begin{equation} \label{eq:88}
+(\vec{\sigma} \cdot \vec{L} + \hbar) u_a = -k \hbar u_a \hspace{1.5cm} , \hspace{1.5cm} (\vec{\sigma} \cdot \vec{L} + \hbar) u_b = +k \hbar u_b $$\\$$ J^2 u_{a,b}=j(j+1) u_{a,b} \hspace{1.5cm} , \hspace{1.5cm} J_3 u_{a,b}=j_3 u_{a,b} \qquad .
+\end{equation} \\ \\
+A partir de esto vemos que siendo el momento angular orbital al cuadrado, $L^2=J^2-\hbar \vec{\sigma} \cdot \vec{L} + 3\hbar^2/4$, las componentes mayores y menores de autoestados de $K$ y $J^2$ son autoestados $L^2$, de modo que aunque el espinor de cuatro componentes no es un autoestado de $L^2$, sus componentes sí lo son, con autovalores  distintos $l_A(l_a+1)\hbar^2$ y $l_B(l_b+1)\hbar^2$ respectivamente. \\ \\
+Para unos valores de $j$ y $l_{a,b}$ podemos tener dos posibles valores de $k$, del mismo modo que en la mecánica cuántica no relativista, para unos números cuánticos $j$ y $l$ dados, tenemos dos posibles valores de $S_3$. Esta relación se puede generalizar con la siguiente tabla. \\
+\begin{table}[htbp] \label{table:2}
+\begin{center} 
+\begin{tabular}{|l|l|l|}
+\hline 
+{}& $l_a$ & $l_b$  \\
+\hline 
+$k=j+1/2$ & $j+1/2$ & $j-1/2$\\ \hline
+$k=-(j+1/2)$ & $j-1/2$ & $j+1/2$\\ \hline
+\end{tabular}
+\caption{Relación entre $j$, $k$, $l_a$ y $l_b$.} 
+\end{center} 
+\end{table} \\ \\
+Una consecuencia importante que se deriva de esto es que las dos componentes de un espinor de cuatro componentes tienen paridades opuestas. \\ \\
+Una vez introducido el operador $K$, que conmutan con el hamiltoniano de Dirac en un potencial central, vamos a pasar a resolver el problema de un potencial central. Empezamos escribiendo las componentes mayores del espinor solución $\psi(\vec{x},t)$ de la forma
+\begin{equation} \label{eq:89}
+\psi_1(\vec{x},t)=g(r)\sqrt{\frac{l\pm m+1/2}{2l+1}} \; Y_{l,m-1/2}(\Omega) $$\\$$
+\psi_2(\vec{x},t)=-g(r)\sqrt{\frac{l \mp m+1/2}{2l+1}} \; Y_{l,m+1/2}(\Omega) \qquad ,
+\end{equation} \\ \\
+donde $g(r)$ es una función radial e $Y_{l,m \pm 1/2}(\Omega)$ un armónico esférico resultante de acoplar el momento angular orbital y el espín. El signo $\pm$ depende de si el espín y el momento angular orbital son paralelos o antiparalelos $j=l\pm 1/2$. \\ \\
+Para obtener las correspondientes componentes menores, tenemos que tener en cuenta, como ya hemos dicho, que aunque el momento angular total es el mismo que el de las componentes mayores, la paridad cambia, por tanto para $j=l \pm 1/2$, tenemos que $l^{'}=l\pm 1$, siendo $l$ y $l^{'}$ el momento angular orbital de las componentes mayores y menores respectivamente. Por tanto
+\begin{equation} \label{eq:90}
+\psi_3(\vec{x},t)=f(r)\sqrt{\frac{(l+1)\mp m+1/2}{2(l\pm 1)+1}} \; Y_{l\pm 1,m-1/2}(\Omega) $$\\$$
+\psi_4(\vec{x},t)=-f(r)\sqrt{\frac{(l+1) \pm m+1/2}{2(l \pm 1)+1}} \; Y_{l \pm 1,m+1/2}(\Omega) \qquad ,
+\end{equation} \\ \\
+Estas cuatro funciones pueden resultar familiares de un hamiltoniano con simetría radial en la mecánica cuántica no relativista. La diferencia está en que ahora la función radial no es solución de la parte radial de la ecuación de Schrodinger. \\ \\
+Sustituyendo esta solución en la ecuación de Dirac (\ref{eq:31}) donde $A_\mu(\vec{x})=(V(r),0,0,0)$, siendo $V(r)$ un potencial atómico de carga $eZ$, obtenemos
+\begin{equation} \label{eq:91}
+\frac{1}{\hbar c}\left(E + \frac{Ze^2}{r} + mc^2 \right) f = \frac{d g}{dr} - l \frac{g}{t} $$\\$$
+\frac{1}{\hbar c} \left( E + \frac{Z e^2}{r} + mc^2\right)g = - \frac{df}{dr} - (l+2) \frac{f}{r}
+\end{equation} \\ \\
+para $j=l+\frac{1}{2}$
+\begin{equation} \label{eq:92}
+\frac{1}{\hbar c}\left(E + \frac{Ze^2}{r} + mc^2 \right) f = \frac{d g}{dr} +(l+1) l \frac{g}{t} $$\\$$
+\frac{1}{\hbar c} \left( E + \frac{Z e^2}{r} + mc^2\right)g = - \frac{df}{dr} + (l-1) \frac{f}{r}
+\end{equation} \\ \\
+para $j=l-\frac{1}{2}$. Estos dos sistemas de ecuaciones se pueden escribir de forma compacta en uno solo escribiendolos en función de valor propio del operador $K$. Para $j=l+1/2$ tenemos que $k=-(l+1)$ y para $j=1-1/2$, $k=+l$.
+\begin{equation} \label{eq:93}
+\frac{1}{\hbar c}\left(E + \frac{Ze^2}{r} + mc^2 \right) f - \left( \frac{dg}{dr} + (1+k) \frac{g}{r}\right)=0 $$\\$$
+\frac{1}{\hbar c}\left(E + \frac{Ze^2}{r} - mc^2 \right) g + \left(\frac{df}{dr} + (1-k) \frac{f}{r} \right)=0 \qquad .
+\end{equation} \\ \\
+Para reducir el número de constantes definimos
+\begin{equation} \label{eq:94}
+F=r \cdot f \hspace{1cm}, \hspace{1cm} G= r \cdot g \hspace{1cm}, \hspace{1cm} \alpha_1=\frac{mc^2 + E}{\hbar c} \hspace{1cm}, \hspace{1cm} \alpha_2=\frac{mc^2-E}{\hbar c} $$\\$$
+\alpha=\sqrt{\alpha_1 \alpha_2} \hspace{1cm}, \hspace{1cm} \gamma=\frac{Ze^2}{\hbar c} \hspace{1cm}, \hspace{1cm} \rho= \alpha \cdot r \qquad .
+\end{equation} \\ \\
+El sistema anterior nos queda como
+\begin{equation} \label{eq:95}
+\left( \frac{d}{d \rho} + \frac{k}{\rho}\right)G - \left( \frac{\alpha_1}{\alpha} + \frac{\gamma}{\rho}\right)F=0 $$\\$$
+\left( \frac{d}{d \rho} - \frac{k}{\rho}\right)F - \left( \frac{\alpha_1}{\alpha} - \frac{\gamma}{\rho}\right)G=0 \qquad.
+\end{equation} \\ \\
+Para resolver este sistema de ecuaciones diferenciales escribimos F y G como serie de potencias
+\begin{equation} \label{eq:96}
+F=\rho^s e^{-\rho} \sum_{m=0}^{\infty} a_m \rho^m \hspace{1.5cm}, \hspace{1.5cm} G=\rho^s e^{-\rho} \sum_{m=0}^{\infty} b_m \rho^m \qquad .
+\end{equation} \\ \\
+El requerimiento de que la densidad de probabilidad no diverja implica
+\begin{equation} \label{eq:97}
+\int_{0}^{\infty} \left( |F(\rho)|^2 + |G(\rho)|^2\right)d \rho < \infty \qquad ,
+\end{equation} \\ \\
+lo cual nos dice que $s\neq - \infty$. Sustituyendo las series (\ref{eq:95}) en (\ref{eq:94}) e igualando coeficientes de la misma potencia de $\rho$ obtenemos una ecuación para los coeficientes
+\begin{equation} \label{eq:98}
+(s+n+k)b_n-b_{n-1}-\gamma a_n - \frac{\alpha_1}{\alpha}a_{n-1}=0 $$\\$$
+(s+n-k)a_n-a_{n-1}+\gamma b_n - \frac{\alpha_2}{\alpha}b_{n-1}=0 \qquad .
+\end{equation} \\ \\
+La condición inicial, n=0, nos da un sistema que solo tiene solución distinta de la trivial si
+\begin{equation} \label{eq:99}
+s=\pm \sqrt{k^2- \gamma^2} \qquad.
+\end{equation} \\ \\
+Analizamos las dos soluciones. De la condición (\ref{eq:96}) vemos que el comportamiento del integrando cerca del origen es proporcional a $\rho^{-2s}$ y para que para que se cumpla, se tiene que cumplir que $s>-1/2$. Teniendo en cuenta la definición de $k$, se cumple que $k^2\geq 1$, por lo que para la solución negativa de $s$ tenemos que el potencial tiene que cumplir que $Z>109$ de modo que para potenciales con $Z<109$ solo nos vale la solución positiva. \\ \\
+Para asegurar la convergencia de la serie, tenemos que truncarla a un orden $n^{'}$, de modo que
+\begin{equation} \label{eq:100}
+\alpha_1 a_{n'}= - \alpha b_{n'} \qquad .
+\end{equation} \\ \\
+Esto nos da una condición para los últimos términos de la serie. Multiplicando la primera de las ecuaciones de (\ref{eq:97}) por $\alpha$, la segunda por $\alpha_1$ y  restándolas obtenemos
+\begin{equation} \label{eq:101}
+b_n[\alpha(s+n+k)-\alpha_1 \gamma]=a_n[\alpha_1(s+n-k)+ \alpha \gamma] \qquad ,
+\end{equation} \\ \\
+haciendo $n=n'$ y usando la condición (\ref{eq:99}) obtenemos
+\begin{equation} \label{eq:102}
+2 \alpha (s+n')= \gamma (\alpha_1 - \alpha_2)=\frac{2 E \gamma}{\hbar c} \qquad ,
+\end{equation} \\ \\
+de modo que despejando la energía obtenemos una ecuación para lo posibles niveles
+\begin{equation}\label{eq:103}
+E=mc^2 \left[1 + \frac{\gamma^2}{(s+n')^2} \right]^{\frac{-1}{2}}  = mc^2 \left[1 + \frac{\gamma}{n' + \sqrt{(j+ 1/2)^2 - \gamma^2}}\right]^\frac{-1}{2} \qquad ,
+\end{equation} \\ \\
+donde $n'=0,1,2...$ y $j+1/2=1,2,3...  $. Si expandimos esta expresión en potencias de $\gamma$
+\begin{equation}\label{eq:104}
+E=mc^2 \left[ 1- \frac{\gamma^2}{2n^2} - \frac{\gamma^4}{2n^3} \left(\frac{1}{|k|} - \frac{3}{4n}\right)\right] \qquad ,
+\end{equation} \\ \\
+donde ahora $n$ no es el orden de la serie, si no que $n=n'+|k|$. En esta expresión de la energía, vemos que la teoría de Dirac presenta en un potencial central una degeneración en $l$, el cual desaparece con el efecto Lamb, la cual añade una corrección a la energía de un orden menor que la constante de estructura fina para $j=1/2$ y dos ordenes para $j\geq 3/2$. \\ \\
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Partículas y antipartículas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Teoría de Huecos}        %SAKURAI
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+Con la ecuación de Dirac hemos superado el problema de la densidad de probabilidad no definida positiva, pero seguimos teniendo soluciones con energía negativa para la partícula libre. Esto plantea un problema desde el punto de vista de que cualquier estado ligado podría caer a estados de partícula libre de energía menor emitiendo energía en forma de radiación, lo cual no se observa experimentalmente. \\ \\
+Dirac resolvió este problema conceptualmente definiendo el \lq \lq mar de Dirac\rq\rq  para los electrones. Este consiste en asumir que todos los estados libres de energía negativa están ocupados por electrones, de modo que por la estadística propia de las partículas de espín 1/2 ningún estado puede decaer a estos si están ocupados. De este modo solo podemos observar la \lq \lq ausencia$"$ de uno de los estados de energía negativa, lo cual se ve como una ausencia de carga negativa, o lo que es lo mismo, una carga positiva. \\ \\
+Estudiando la conjugación de carga de la ecuación de Dirac en presencia de un campo electromagnético podemos ver que existe una relación uno a uno entre los estados del electrón de energía negativa y los estados de energía positiva de una partícula idéntica, en presencia del mismo campo y con misma carga pero distinto signo (hueco). Por lo tanto, los estados de energía negativa y carga $-|e|$ describen partículas de energía positiva y carga $+|e|$, por lo que no deben ser ignorados. \\ \\
+De esta forma se resuelve el problema de los estados de energía negativa, y se predice teóricamente la existencia de las antipartículas. Es destacable que para poder resolver el problema hemos tenido que pasar de un modelo de partícula única a un modelo de muchas de partículas. \\
+\begin{table}[htbp] \label{table:1}
+\begin{center} 
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline 
+{}& Carga & Energía & Momento & Espín & Helicidad & Velocidad \\
+\hline 
+$e^-(E<0)$ & $-|e|$ & $-|E|$ & $\vec{p}$& $\hat{S_3}$ & $\vec{\sigma} \cdot \vec{p}/|\vec{p}|$ & $\vec{v}$\\ \hline
+$e^+(E>0)$ & $+|e|$ & $+|E|$ & $-\vec{p}$& $-\hat{S_3}$ & $\vec{\sigma} \cdot \vec{p}/|\vec{p}|$ & $\vec{v}$\\ \hline
+\end{tabular}
+\caption{Tabla de la relación entre las variables dinámicas del electrón de energía negativa y el positrón que describe.} 
+\end{center} 
+\end{table} \\ \\
+Podemos establecer, como vemos en la tabla 1, una relación entre el valor de las variables dinámicas observables para el electrón con energía negativa y el positrón que se explica por su ausencia.  \\
+Este modelo además permite interpretar procesos electromagnéticos entre electrones y positrones. 
+\begin{enumerate}
+\item La creación de un par electrón-positrón a partir de un fotón se puede interpretar como la absorción de un fotón por un electrón de energía negativa dando lugar a un electrón de energía positiva y a un hueco en los estados de energía negativa.
+\item La aniquilación de un par electrón-positrón emitiendo un fotón se puede interpretar como un electrón de energía positiva emitiendo un fotón pasando a ocupar un hueco en un estado de energía negativa.
+\end{enumerate} 
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%555
+\subsubsection{Conjugación de carga} %GREINER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+
+
+
+
+Según lo que hemos visto en la teoría de huecos, para cada partícula descrita por la ecuación de Dirac, existe una antipartícula de misma carga pero signo opuesto que se justifica como la ausencia de la primera en un estado de energía negativa. Esto nos lleva a una nueva simetría que nos permite relacionar uno a uno los estados de energía negativa de una partícula con los estados de energía positiva de su antipartícula mediante una transformación que es la conjugación de carga. \\ \\
+Si ecuación que nos da los estados para la partícula es
+\begin{equation}\label{eq:105}
+\left[\gamma^\mu \left(p_\mu - \frac{e}{c}A_\mu \right)- mc \right] \psi(\vec{x},t)=0 \qquad ,
+\end{equation} \\
+la ecuación de la correspondiente antipartícula sería
+\begin{equation}\label{eq:106}
+\left[\gamma^\mu \left(p_\mu + \frac{e}{c}A_\mu \right) - mc \right] \psi_c(\vec{x},t)=0\qquad .
+\end{equation} \\ \\
+Es importante decir que no es relevante cual de las dos consideremos partícula o antipartícula. En el caso del electrón se ha considerado históricamente al electrón como partícula y al positrón como antipartícula, pero una interpretación contraria sería completamente válida. \\ \\
+Si conjugamos la ecuación (\ref{eq:104}) y cambiamos de signo, teniendo en cuenta que el operador ${p^*}^\mu=-p^\mu$ y ${A^*}^\mu=A^\mu$ ,
+\begin{equation}\label{eq:107}
+\left[ {\gamma^*}^\mu \left(p_\mu + \frac{e}{c}A_\mu \right) \psi^*(\vec{x},t) + mc \right] \psi^*(\vec{x},t)=0 \qquad .
+\end{equation} \\ \\
+Podemos conseguir que esta ecuación tenga la misma forma que (\ref{eq:105}) si somos capaz de encontrar una transformación unitaria $\hat{S}$ tal que
+\begin{equation}\label{eq:108}
+\hat{S} {\gamma^*}^\mu \hat{S}^{-1} = -\gamma^\mu \qquad .
+\end{equation}
+%CHAPUZA -> (2.2.2)
+El teorema fundamental de Pauli visto en el apartado (2.2.2) nos dice que esta transformación existe, de modo que si aplicamos $\hat{S}$ a (\ref{eq:106}) por la izquierda obtenemos
+\begin{equation}\label{eq:109}
+\hat{S}\left[\left(p_\mu + \frac{e}{c}A_\mu \right) {\gamma^*}^\mu +mc \right] \psi^*(\vec{x},t)=0 $$\\$$
+\left[\left(p_\mu + \frac{e}{c}A_\mu \right)\hat{S} {\gamma^*}^\mu \hat{S}^{-1} +mc \right]\hat{S} \psi^*(\vec{x},t)=0 $$\\$$
+\left[\left(p_\mu + \frac{e}{c}A_\mu \right) \gamma^\mu - mc \right] \hat{S}\psi^*(\vec{x},t)=0 \qquad ,
+\end{equation} \\ \\
+que es la misma ecuación que vimos en (\ref{eq:105}) cuyas funciones de onda eran, $\psi_c$, por lo tanto
+\begin{equation}\label{eq:110}
+\psi_c(\vec{x},t)=\hat{S}\psi^*(\vec{x},t) \equiv \hat{C} \gamma^0 \psi^*=\hat{C} \bar{\psi}^T \qquad .
+\end{equation} \\ \\
+Vemos por tanto que podemos obtener los estados $\phi_c$ para las antipartículas por medio de una transformación para los estados $\phi$. Reescribiéndolo, definimos la transformación $\hat{C}$ actuando sobre $\bar{\psi}$ transpuesto, que es la que se denomina conjugación de carga, y es la que nos permite relacionar uno a uno las soluciones de partículas con sus correspondientes antipartículas. \\ \\
+Ahora vamos a estudiar la forma que ha de tener la matriz de la transformación. Reescribiendo $\hat{S}$ como $\hat{C}\gamma^0$ la expresión (\ref{eq:107}) queda como
+\begin{equation}\label{eq:111}
+\hat{C}\gamma^0 {\gamma^\mu}^* (\hat{C} \gamma^0)^{-1}=- \gamma^\mu \qquad \rightarrow \qquad (\hat{C}^{-1})^T {\gamma^\mu}^* \hat{C} ^{T}=- {\gamma^\mu} ^{T}\qquad .
+\end{equation} \\ \\
+Para obtener la segunda expresión hemos usado la propiedad (\ref{eq:39}), la cual solo es cierta en la representación de Dirac de las matrices $\gamma^\mu$. Teniendo en cuenta que
+\begin{equation}\label{eq:112}
+(\gamma^0)^T=\gamma^0 \qquad , \qquad (\gamma^1)^T=-\gamma^1 \qquad , \qquad (\gamma^2)^T=\gamma^2 \qquad , \qquad (\gamma^3)^T=-\gamma^3 \qquad,
+\end{equation} \\ \\
+para que se cumpla (\ref{eq:110}) la matriz $\hat{C}^T$ debe anticonmutar con $\gamma^0$ y $\gamma^2$ y conmutar con  $\gamma^1$ y $\gamma^3$, por lo que una posible elección para la conjugación de carga en la representación de Dirac es
+\begin{equation}\label{eq:113}
+\hat{C}=i \gamma^2 \gamma^0 
+\end{equation} \\ \\
+que cumple
+\begin{equation}\label{eq:114}
+\hat{C}=- \hat{C}^{-1}=- \hat{C}^\dagger =- \hat{C}^T
+\end{equation} \\ \\
+Podemos obtener la matriz para la transformación de conjugación de carga en otra representación diferente a la de Dirac, a partir de esta por medio de una transformación unitaria que nos relacione ambas representaciones.
+\newpage
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{La ecuación de Dirac en (2+1)-dimensiones}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+Para el caso de (2+1)-dimensiones buscamos una ecuación con los mismos requisitos que impusimos en el caso de (3+1), por lo tanto, podría parecer que una restricción del resultado anterior a una dimensión menor sería suficiente, pero no es así. Aunque la forma de la ecuación debe ser la misma que (\ref{eq:21}), los coeficientes no serán los mismos, ya que la reducción del número coordenadas implica una reducción del número de relaciones de anticonmutación. De modo que ahora la expresión \\
+\begin{equation} \label{eq:115}
+\alpha^j  \alpha ^i + \alpha^i  \alpha^j = 2\delta _{ij} \quad ,
+\end{equation} \\ \\
+solo nos da dos relaciones de anticonmutación (i=1,2). En total tendremos tres relaciones de anticonmutación, las cuales se pueden satisfacer con matrices de dimensión 2x2, por lo que para el caso de (2+1)-dimensiones los coeficientes $\alpha^i$ y $\beta$ son matrices cuadradas de dimensión 2, así como $\gamma^\mu$, con ello, la solución $\psi(\vec{x},t)$ ahora será una función de onda espinorial de dos componentes. \\ \\
+La restricción al plano, consiste restringir el movimiento a una hipersuperficie en la que una de las coordenadas espaciales permanece constante, pasando a ser prescindible. De esta forma introducimos la notación para el problema en (2+1)-dimensiones de la misma manera que en la sección anterior, suprimiendo una de las coordenadas espaciales. \\
+\begin{equation} \label{eq:116}
+g_{\mu \nu}=diag(1,-1,-1) \hspace{2.5cm} x^\mu \equiv (it,\vec{x}) =(x^0,x^1,x^2) $$\\$$
+\partial_\mu = \frac{\partial}{\partial x^\mu}=(\partial_t,\partial_1, \partial_2 ) \hspace{2.5cm} \Box = \partial_\mu·\partial^\mu = +\frac{\partial^2}{\partial t^2} - {\partial_1}^2 - {\partial_2^2} \qquad ,
+\end{equation} \\ \\
+donde $\mu=0,1,2$ y $\vec{x}=(x_1,x_2)$, de modo que los vectores covariantes pasan a ser trivectores. \\ \\
+Del mismo modo que en el caso de (3+1)-dimensiones definimos el espinor adjunto para (2+1)-dimensiones así como la densidad de corriente y densidad de probabilidad como \\
+\begin{equation} \label{eq:117}
+\bar{\psi}(\vec{x},t)= \psi^\dagger (\vec{x},t) \beta \hspace{3cm} \bar{\psi}(\gamma^\mu p_\mu + m)=0 $$\hspace{5mm}$$
+\rho=\psi^\dagger\psi \hspace{3cm} \j^\mu=\bar{\psi}\gamma^\mu \psi \quad ,
+\end{equation} \\ \\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Matrices gamma}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+En la sección anterior habíamos definido el conjunto de matrices que cumplían la propiedad (\ref{eq:34}) como el espacio algebraico de Clifford. El hecho de disminuir las dimensiones espaciales nos disminuye también la dimensión de este espacio algebraico. \\ \\
+Para dimensiones impares arbitrarias se puede demostrar que el producto de todas las matrices $\gamma^\mu$ es proporcional a la identidad, y debido a que el cuadrado de las matrices $\gamma^\mu$ es también identidad, se puede ver que \\
+\begin{equation} \label{eq:118}
+\gamma^0\gamma^1\gamma^2=\pm i \mathbb{I} \hspace{1cm} \rightarrow \hspace{1cm} \gamma^i=\pm\epsilon_{ijk}\gamma^j \gamma^k
+\end{equation} \\ \\
+lo cual nos dice que cualquier producto de matrices nos da otra, por lo tanto no podemos construir  matrices linealmente independientes por medio del producto de estas, con lo que solo tenemos tres matrices linealmente independientes. De modo que el conjunto de matrices del álgebra de Clifford es \\
+\begin{equation} \label{eq:119}
+\mathbb{I} \quad , \quad \gamma^0 \quad , \quad \gamma^1 \quad , \quad \gamma^2 \qquad .
+\end{equation} \\ \\
+A partir de este resultado se puede demostrar que se siguen cumpliendo los cuatro teoremas que se derivaron del álgebra de Clifford en el apartado anterior y en particular el cuarto, el teorema fundamental de Pauli, el cual ya vimos que era de gran importancia para el estudio del comportamiento de los espinores bajo transformaciones como la conjugación de carga. \\ \\
+Para el caso de (3+1)-dimensiones habíamos definido la matriz $\gamma^5$, que sin entrar más a fondo, decíamos que constituía el generador de las transformaciones quirales. En (2+1)-dimensiones, como vemos en (\ref{eq:114}) no es posible construir una matriz que anticonmute con todas las matrices $\gamma^\mu$ del álgebra de Clifford, es por ello por lo que no parece ser posible, en principio, poder definir la simetría quiral para (2+1)-dimensiones. Esto no ocurre particularmente para (2+1)-dimensiones, si no que es general para dimensiones impares.
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Representación irreducible de las matrices gamma}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+A pesar de que el número de matrices 2x2 que cumplen los requisitos es el mismo que el número de matrices que buscamos, existe más de una posible representación para las matrices $\gamma^\mu$. Por analogía, la representación de Dirac en (2+1)-dimensiones se denomina a la que diagonaliza la matriz $\gamma^0$ de la siguiente forma
+\begin{itemize}
+\item Representación A \\ \\
+$\gamma^0=\sigma_3 \hspace{1cm} , \hspace{1cm} \gamma^1=i\sigma_1 \hspace{1cm}, \hspace{1cm} \gamma^2=i\sigma_2 \qquad,$ \\ \\
+además es interesante introducir otra representación que también diagonaliza $\gamma^0$ \\ 
+\item Representación B \\ \\
+$\gamma^0=\sigma_3 \hspace{1cm}, \hspace{1cm} \gamma^1=i\sigma_1 \hspace{1cm}, \hspace{1cm} \gamma^2=-i\sigma_2 \quad .$
+\end{itemize}
+Las matrices $\alpha^i$ y $\beta$ para cada representación se pueden obtener invirtiendo las expresiones obtenidas en (\ref{eq:33}). \\ \\
+El motivo de introducir otra representación, como veremos más adelante, es que ambas representaciones no son equivalentes, o lo que es lo mismo, las soluciones obtenidas por la ecuación de Dirac con cada representación no son las mismas.\\ \\
+Una ecuación relativista que describa partículas de espín 1/2 tiene cuatro soluciones linealmente independientes, resultado de las posibles combinaciones de las dos posibles soluciones de energía y de espín. En el caso de (3+1)-dimensiones cualquier representación nos da espinores de dimensión cuatro con lo que es posible obtener cuatro soluciones linealmente independientes para cualquier representación, es por ello por lo que no era necesario introducir otra representación. En el caso de (2+1)-dimensiones no es así, y como veremos, la única forma de obtener todas las posibles soluciones es combinando dos representaciones. \\ \\
+Más adelante veremos que es posible encontrar una transformación unitaria que nos relacione las dos representaciones, con lo cual, podemos convertir las funciones de onda obtenidas en una representación a otras equivalentes en la otra representación.
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Soluciones de partícula libre en el plano en ambas representaciones: Spin}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+Como vimos en (3+1)-dimensiones, la ecuación de Dirac admite solución de onda plana para la partícula libre de la forma escrita en (\ref{eq:44}), donde ahora $u(\vec{p})$ es un espinor de dos componentes. Sustituyendo esta expresión en la ecuación de Dirac, para cada una de las representaciones vistas para $\gamma^\mu$, obtenemos dos sistema de ecuaciones que nos da la solución espinorial en cada caso \\ \\
+\textbf{Representación A} \\ \\
+El sistema de ecuaciones en forma matricial se escribe como \\
+\begin{equation} \label{eq:120}
+\begin{pmatrix}
+E -mc^2 & ip_x c+p_yc \\ ip_xc-p_yc & -E -mc^2
+\end{pmatrix} 
+\begin{pmatrix}
+u_{A1}(\vec{p}) \\ u_{A2}(\vec{p})
+\end{pmatrix}=0 \quad ,
+\end{equation} \\ \\
+donde $u_{A1}(\vec{p})$ y $u_{A2}(\vec{p})$ son las componentes del espinor de dos componentes en la representación A. El sistema tiene dos soluciones distintas de la trivial linealmente independientes para cada signo de la energía. Si para $E=E_+$ hacemos $u_{A1}=1$ y resolvemos para $u_{A2}$ y para $E=E_-$ hacemos $u_{A2}=1$ y resolvemos para $u_{A1}$ obtenemos
+\begin{equation} \label{eq:121}
+u_{A1}(\vec{p})= N\begin{pmatrix}
+1 \\ \frac{p_yc-ip_xc}{E_+ +mc^2}
+\end{pmatrix} \hspace{2.5cm} , \hspace{2.5cm}
+u_{A2} (\vec{p})= N\begin{pmatrix}
+\frac{p_yc + i p_xc}{E_- -mc^2} \\ 1
+\end{pmatrix} \qquad ,
+\end{equation} \\ \\
+y sustituyendo en la función de onda (\ref{eq:44}) \\ 
+\begin{equation} \label{eq:122}
+\psi_{A1} (\vec{x},t)=N 
+\begin{pmatrix}
+1 \\ \frac{p_yc-ip_xc}{E_+ +mc^2}
+\end{pmatrix} e^{\frac{-i}{\hbar}(\vec{p}\cdot \vec{x} -E_+ t)} \hspace{1cm} , \hspace{1cm}
+\psi_{A2} (\vec{x},t)= N
+\begin{pmatrix}
+\frac{p_yc+ip_xc}{E_- - mc^2} \\ 1
+\end{pmatrix} e^{\frac{-i}{\hbar}(\vec{p}\cdot \vec{x} - E_- t)} \qquad ,
+\end{equation} \\ \\
+siendo N una constante de normalización, cuyo valor se puede determinar como vimos en (\ref{eq:58}) según el significado que se quiera dar a la densidad de probabilidad. \\ \\
+En el caso de partícula libre en reposo, vemos que las soluciones serían autoestados del operador $\hat{S_3}=\frac{\hbar}{2}\sigma_3$. Además vemos que en este caso, cada estado de espín lleva asociado un signo de la energía, de modo que solo podemos describir partículas con energía positiva y espín 1/2 o partículas con energía negativa y espín -1/2, o lo que es lo mismo, partículas con espín positivo y antipartículas con espín negativo. \\ \\
+\textbf{Representación B} \\ \\
+Actuando de manera análoga al caso anterior
+\begin{equation} \label{eq:123}
+\begin{pmatrix}
+E -mc^2 & ip_xc-p_yc \\ ip_xc+p_yc & -E -mc^2
+\end{pmatrix} 
+\begin{pmatrix}
+u_{B1}(\vec{p}) \\ u_{B2}(\vec{p})
+\end{pmatrix}=0 \qquad ,
+\end{equation} \\ \\
+siendo las dos soluciones distintas de la trivial \\
+\begin{equation} \label{eq:124}
+u_{B1}(\vec{p})= N\begin{pmatrix}
+1 \\ \frac{-p_yc-ip_xc}{E_+ +mc^2}
+\end{pmatrix} \hspace{2.5cm}, \hspace{2.5cm}
+u_{B2} (\vec{p})= N\begin{pmatrix}
+\frac{-p_yc + i p_xc}{E_- -mc^2} \\ 1
+\end{pmatrix} \qquad , 
+\end{equation} \\ \\
+y las funciones de onda \\
+\begin{equation} \label{eq:125}
+\phi_{B1} (\vec{x},t)=N 
+\begin{pmatrix}
+1 \\ \frac{-p_yc-ip_xc}{E_+ +mc^2}
+\end{pmatrix} e^{\frac{-i}{\hbar}(\vec{p}\cdot \vec{x} -E_+ t)} \hspace{1cm} , \hspace{1cm}
+\phi _{B2} (\vec{x},t)= N
+\begin{pmatrix}
+\frac{-p_yc+ip_xc}{E_- - mc^2} \\ 1
+\end{pmatrix} e^{\frac{-i}{\hbar}(\vec{p}\cdot \vec{x} - E_- t)} \qquad .
+\end{equation} \\ \\
+Para poder comparar estas soluciones con las obtenidas en la representación A, tenemos que escribir estas soluciones en la representación A también, para ello tenemos que multiplicarlas por la matriz de transformación de la representación B a la representación A. Al ser $\gamma^0$ y $\gamma^1$ iguales en ambas representaciones y $\gamma^2$ de signo opuesto, la matriz de transformación debe anticonmutar con $\gamma^0$ y $\gamma^1$ y conmutar con $\gamma^2$ en la representación B, por lo que una posible elección para la transformación es $\gamma^2$ en la representación B. \\
+\begin{equation} \label{eq:126}
+\psi_{B1} (\vec{x},t)=N 
+\begin{pmatrix}
+ \frac{p_yc+ip_xc}{E_+ +mc^2} \\ 1
+\end{pmatrix} e^{\frac{-i}{\hbar}(\vec{p}\cdot \vec{x} -E_+ t)} \hspace{1cm} , \hspace{1cm}
+\psi _{B2} (\vec{x},t)= N
+\begin{pmatrix}
+1 \\ \frac{p_yc-ip_xc}{E_- - mc^2}
+\end{pmatrix} e^{\frac{-i}{\hbar}(\vec{p}\cdot \vec{x} - E_- t)} \qquad .
+\end{equation} \\ \\
+Vemos que en ese caso obtenemos también dos soluciones linealmente independientes. En esta representación, para el caso de partícula en reposo, $\vec{p}=0$, vemos que las soluciones son también autoestados del operador de espín, pero al contrario que en el caso anterior, la solución con $E=E_+$ tiene espín -1/2 y la solución con $E=E_-$ tiene espín 1/2. De este modo esta representación describe partículas de espín negativo y antipartículas de espín positivo. \\ \\
+Podemos pasar de una solución a otra en cada representación irreducible definiendo los operadores de proyección \\
+\begin{equation} \label{eq:127}
+\Lambda_A^+(\vec{p})=u_{A1}(\vec{p}) \bar{u_{A1}}(\vec{p}) \hspace{1.5cm}, \hspace{1.5cm} \Lambda_A^-(\vec{p})=-u_{A2}(\vec{p}) \bar{u_{A2}}(\vec{p}) \qquad ,
+\end{equation} \\ \\
+para el caso de la representación A, aunque se puede hacer de la misma manera para la representación B. Los operadores de proyección por lo tanto dependen de como definamos la norma. \\ \\ 
+En el caso de (2+1)-dimensiones no es posible resolver el problema de que para $\vec{p} \neq 0$ las soluciones no sean autoestados de espín definiendo el operador  como la helicidad, ya que un el plano, el momento angular es un escalar, y por lo tanto también el espín, de modo que no se puede definir la proyección del momento sobre la dirección de espín. \\ \\
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Representación reducible: Soluciones de partícula libre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+Hemos visto que debido a que podemos construir un espacio de matrices $\gamma^\mu$ en el plano con matrices de dimensión 2, es necesario utilizar dos representaciones para poder describir todos los posibles casos físicamente posibles. A pesar de esto se puede construir una representación, para el problema en (2+1)-dimensiones, con matrices de dimensión 4, tal que podamos obtener directamente las cuatro soluciones que hemos obtenido con las dos representaciones. Para ello definimos las matrices $\gamma^\mu$ como \\
+\begin{equation} \label{eq:128}
+\gamma^0 = \begin{pmatrix}
+\sigma_3 & 0 \\ 0 & -\sigma_3
+\end{pmatrix} \hspace{1.5cm}, \hspace{1.5cm}
+\gamma^i = \begin{pmatrix}
+i \sigma_i & 0 \\ 0 & -i \sigma_i
+\end{pmatrix} \qquad .
+\end{equation} \\ \\
+Donde el índice i cumple, i=1,2. Escribimos la ecuación de Dirac con estas matrices y sustituimos la solución de onda plana, ahora con un espinor de cuatro componentes, separándolo en componentes mayores y menores como hacíamos en el caso de (3+1)-dimensiones. De esta forma obtenemos las siguientes ecuaciones \\
+\begin{equation} \label{eq:129}
+\begin{pmatrix}
+E \sigma_3 - i\sigma_i p_ic - mc^2 \mathbb{I} &0 \\ 0 & -E \sigma_3 + i \sigma_i p_ic - mc^2 \mathbb{I}
+\end{pmatrix}
+\begin{pmatrix}
+u_a (\vec{p}) \\ u_b(\vec{p}) 
+\end{pmatrix}=0 \qquad ,
+\end{equation} \\ \\
+donde ahora $u_a(\vec{p})$ y $u_b(\vec{p})$ son las componentes mayores y menores del espinor de Pauli en cuatro componentes. Al contrario que en el caso de (3+1)-dimensiones las ecuaciones que obtenemos no están acopladas para las componentes mayores y menores. De esta forma obtenemos las cuatro soluciones \\
+\begin{equation} \label{eq:130}
+\psi(\vec{x},t)=N \begin{pmatrix}
+1 \\ \frac{p_yc-ip_xc}{E_+ +mc^2} \\ 0 \\ 0
+\end{pmatrix} e^{\frac{-i}{\hbar}(\vec{p}\cdot \vec{x}- E_+ t)} \hspace{1.5cm} , \hspace{1.5cm}
+\psi(\vec{x},t)=N \begin{pmatrix}
+\frac{p_yc+ip_xc}{E_- -mc^2} \\ 1 \\ 0 \\ 0
+\end{pmatrix} e^{\frac{-i}{\hbar}(\vec{p} \cdot \vec{x}- E_- t)}  \qquad $$\\$$
+\psi(\vec{x},t)=N \begin{pmatrix}
+0 \\ 0 \\ 1 \\ \frac{p_yc-ip_xc}{E_+ + mc^2}
+\end{pmatrix} e^{\frac{-i}{\hbar}(\vec{p} \cdot \vec{x}- E_+ t)} \hspace{1.5cm} , \hspace{1.5cm}
+\psi(\vec{x},t)= N \begin{pmatrix}
+0 \\ 0 \\ \frac{p_yc+ip_xc}{E_- - mc^2} \\ 1
+\end{pmatrix} e^{\frac{-i}{\hbar}(\vec{p} \cdot \vec{x} - E_- t)} \qquad .
+\end{equation} \\ \\
+De esta forma hemos obtenido cuatro soluciones con espinores de cuatro componentes, aunque diferentes a las obtenidas en (3+1)-dimensiones. En este caso las componentes mayores y menores se corresponden con las soluciones de la representación A y B respectivamente, es por ello por lo que la ecuación (\ref{eq:129}) nos da ecuaciones no acopladas para las componentes, ya que las soluciones pertenecen a representaciones diferentes, y por lo tanto, no obtenemos soluciones con componentes mayores y menores no nulas simultaneamente. \\ \\
+A partir de estas cuatro soluciones, podemos hacer combinaciones lineales que nos permitan describir los dos estados de espín para partículas y antipartículas sin necesidad de cambiar de representación. \\ \\
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Acoplamiendo de un campo electromagnético en el plano}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+En (2+1)-dimensiones, la introducción del campo electromagnético se hace de la misma manera que como vimos en la sección anterior. Introducimos el potencial electromagnético en la ecuación de Dirac en acoplamiento mínimo para asegurar la invariancia gauge, obteniendo una ecuación de la misma forma que (\ref{eq:61}). Las diferencias con respecto al caso anterior es que, como ya hemos visto, ahora existen dos representaciones para las matrices $\gamma^\nu$ de dimensión 2x2 y además, la restricción al plano, también nos limita las componentes del campo externo. En un espacio de dos dimensiones espaciales un campo vectorial divergente tiene dos posibles componentes ($\textbf{E}_1$ y $\textbf{E}_2$), mientras que un campo rotacional solo una ($\textbf{H}_3$) y como su dirección no está contenida en el plano, actúa como un campo escalar en este. \\ \\
+Multiplicando la ecuación de Dirac por si misma con el campo en acoplamiento mínimo para obtener una ecuación de segundo orden en derivadas espacio-temporales obtenemos la misma ecuación que (\ref{eq:69}). Del mismo modo, podemos definir también el tensor $\sigma^{\mu \nu}$ donde ahora $\mu, \nu=0,1,2$. \\ \\
+La actuación del tensor $\sigma^{\mu \nu}$ sobre el potencial electromagnético es necesaria para hacer explícito el tensor de campos electromagnético de Maxwell $F_{\mu \nu}$. La diferencia es que ahora este no es un tensor antisimétrico de seis componentes, si no de tres.
+\begin{equation}\label{eq:131}
+F_{01}=-{\textbf{E}}_1 \hspace{1cm} , \hspace{1cm} F_{02}=- {\textbf{E}}_2 \hspace{1cm} , \hspace{1cm} F_{1,2}={\textbf{H}}_3 \qquad ,
+\end{equation} \\ \\
+de modo que obtenemos
+\begin{equation}\label{eq:132}
+\left[ \left(i \hbar \frac{\partial}{\partial t} - e \phi\right)^2 - \left( \frac{e \hbar}{c} \vec{\nabla} - e \vec{A}\right)^2 +  \textit{k} \cdot e \hbar c(\sigma_3 \textit{H}_3 - i \alpha^i \textit{E}^i)\right]\psi(\vec{x},t)=m^2c^4 \psi(\vec{x},t) \qquad ,
+\end{equation} \\ \\
+El cálculo hecho hasta ahora es completamente general independientemente de cual de las dos representaciones irreducibles estemos usando. \\ \\
+Esta ecuación nos puede recordar a (\ref{eq:71}), la diferencia es que ahora los espinores son de dos componentes por lo que podemos obtener un sistema de dos ecuaciones en vez de cuatro (para cada representación) además el operador de espín, que antes aparecía como un vector de matrices 4x4, $\Sigma^k$, ahora es solo una matriz de dimensión 2x2 que está multiplicada por un campo escalar $\textbf{H}_3$. \\ \\
+Continuamos ahora con el límite no relativista, para ello partimos de la expresión (\ref{eq:72}) particularizada para (2+1) dimensiones. Para cada representación tenemos \\ \\
+Representación A
+\begin{equation}\label{eq:133}
+(E-e\phi)u_{A1}=-\left[i\left(p_1-\frac{e}{c}A_1\right)+\left(p_2-\frac{e}{c}A_2\right)\right]u_{A2} - mc^2 \; u_{A1} $$\\$$ 
+(E-e\phi)u_{A2}=-\left[i\left(p_1-\frac{e}{c}A_1 \right)-\left(p_2-\frac{e}{c}A_2\right)\right]u_{A1} + mc^2 \; u_{A2} 
+\end{equation} \\ \\
+Representación B
+\begin{equation}\label{eq:134}
+(E-e\phi)u_{B1}=-\left[i\left(p_1-\frac{e}{c}A_1\right)-\left(p_2-\frac{e}{c}A_2\right)\right]u_{B2} - mc^2 \; u_{B1} $$\\$$ 
+(E-e\phi)u_{B2}=-\left[i\left(p_1-\frac{e}{c}A_1 \right)+\left(p_2-\frac{e}{c}A_2\right)\right]u_{B1} + mc^2 \; u_{B2} 
+\end{equation} \\ \\
+Ahora vamos a hacer el límite no relativista, para ello hacemos como en el caso de (3+1)-dimensiones: hacemos el cambio $E=E'+mc^2$, y luego, despejamos las componentes menores en la segunda ecuación en cada representación y sustituimos en la primera. De esta forma obtenemos una ecuación de segundo orden para las componentes mayores en las dos representaciones.
+\begin{equation}\label{eq:135}
+\left[\left(p_1 - \frac{e}{c}A_1\right) \pm \left(p_2 - \frac{e}{c}A_2\right)\right] \left[\left(p_1 - \frac{e}{c}A_1\right) \mp \left(p_2 - \frac{e}{c}A_2\right)\right]\frac{1}{2m} \left(1 + \frac{E-e\phi}{2mc^2}\right)^{-1}u_{A1,B1}=-(E'-e\phi)u_{A1,B1} \qquad , 
+\end{equation} \\ \\
+y si hacemos la aproximación no relativista que vimos en (\ref{eq:75}). Despreciando términos del orden (v/c) las componentes $u_{A2}$ y $u_{B2}$ se anula, de modo obtenemos para $u_{A1}$ y $u_{B1}$
+\begin{equation}\label{eq:136}
+\left[\frac{1}{2m}\left(\vec{p} - \frac{e}{c}\vec{A}\right)^2 + e\phi \pm \frac{e \hbar}{2mc} \vec{\nabla} \wedge \vec{A}\right]u_{A1,B1}=E' u_{A1,B1} $$\\$$
+\left[\frac{1}{2m}\left(\vec{p} - \frac{e}{c}\vec{A}\right)^2 + e\phi \pm \frac{e \hbar}{2mc} \textbf{H}_3 \right]u_{A1,B1}=E' u_{A1,B1} \qquad .
+\end{equation} \\ \\
+Esta es la ecuación que describe para estados de energía positiva en ambas representaciones el límite no relativista. El término rotacional ha aparecido de los términos cruzados del producto del momento y el potencial vector, con un signo positivo o negativo para la representación A o B respectivamente. La diferencia con respecto al resultado en (3+1)-dimensiones es que ahora la interacción con el campo magnético no viene como un producto escalar de vectores, si no que ahora es un término escalar.  \\ \\
+El hecho de que el término magnético tenga un signo diferente en cada representación está relacionado con le hecho de que en cada una el estado de energía positiva lleva asociado una dirección de espín, por lo tanto, si entendemos el campo magnético como un vector perpendicular al plano donde se encuentra la partícula, el estado de energía positiva tendrá un espín paralelo o antiparalelo a este dependiendo de la representación. \\ \\
+Todo esto nos indica que la existencia de las dos representaciones es necesaria también en el límite no relativista para poder obtener todos los posibles estados de una partícula de Dirac en (2+1)-dimensiones.
+
+
+
+
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{La representación de Dirac en (3+1)-dimensiones en presencia de un campo magnético constante}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{La representación de Dirac en (2+1)-dimensiones en presencia de un campo magnético constante}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+En presencia de un campo magnético constante, las partículas de Dirac vienen descritas por la ecuación (\ref{eq:61}), donde ahora el potencial vector $A_\mu$ tiene la forma
+\begin{equation}\label{eq:137}
+A_\mu=(0,-x_2 \textbf{B}_3,0) \qquad,
+\end{equation} \\ \\
+donde la primera componente es nula al no haber campo eléctrico. La tercera no tiene porque serlo de forma general, pero siempre puede anularse por medio de una rotación en el plano. \\ \\
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+\subsection{La ecuación de Dirac con campo magnético: Soluciones en las 2 representaciones}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+\textbf{Representación A} \\ \\
+Usando la representación A de Dirac en presencia de este campo obtenemos una ecuación matricial
+\begin{equation}\label{eq:138}
+\begin{pmatrix}
+E-mc^2 & -i p_1c-p_2c - i\frac{e}{c}x^2 \textbf{B}_3 \\  -i p_1 c+p_2c - i\frac{e}{c}x^2 \textbf{B}_3 & -E-mc^2
+\end{pmatrix}
+\begin{pmatrix}
+u_{A1} \\ u_{A2}
+\end{pmatrix} = 0 \qquad ,
+\end{equation} \\ \\
+de donde podemos obtener un sistema de ecuaciones acopladas para las componentes
+\begin{equation}\label{eq:139}
+\left( i p_1c+p_2c +i \frac{e}{c}x^2 \textbf{B}_3 \right)u_{A2}=(E-mc^2)u_{A1} \qquad  \;{} $$\\$$
+\left(-i p_1c+p_2c -i \frac{e}{c}x^2 \textbf{B}_3 \right)u_{A1}=(E+mc^2)u_{A2} \qquad .
+\end{equation} \\ \\
+Para resolver esta ecuación es interesante fijarse en que depende de $p_1$ pero no de $x^1$, es por ello por lo que podemos buscar soluciones que sean autoestados de energía definida al mismo tiempo que estados propios de $p_1$. Al aparecer explicitamente $x^2$, sabemos que no vamos a poder a hacer lo mismo con $p_2$, por lo que la solución dependerá de una función de $x^2$ aún por determinar. Con esto sabemos podemos buscar soluciones de la forma
+\begin{equation}\label{eq:140}
+u_{A1,2}(t,x^1,x^2)=e^{\frac{i}{\hbar}(E\cdot t - p_{1}x^{1})} \phi_{A1,2}(x^2) \qquad .
+\end{equation} \\ \\
+Sustituyendo esta solución en (\ref{eq:139}) obtenemos una ecuación para $\phi_{A1,2}(x^2)$
+\begin{equation}\label{eq:141}
+\left[ i \left(p_1c +\frac{e}{c}x^2 \textbf{B}_3 \right) -i \hbar c\frac{\partial}{\partial x^2}\right]\phi_{A2}=(E-mc^2)\phi_{A1} \qquad  \;{} $$\\$$
+\left[ -i \left(p_1c +\frac{e}{c}x^2 \textbf{B}_3 \right) -i \hbar c\frac{\partial}{\partial x^2}\right]\phi_{A1}=(E+mc^2)\phi_{A2}\qquad .
+\end{equation} \\ \\
+Si ahora definimos  ${x^2}_0 =c p_1 /e \textbf{B}_3$ tenemos
+\begin{equation}\label{eq:142}
+\left[ i \frac{e}{c}  \textbf{B}_3 (x^2 - {x^2}_0) -i \hbar c \frac{\partial}{\partial x^2} \right]\phi_{A2}=(E-mc^2)\phi_{A1} \qquad  {} $$\\$$
+\left[ -i \frac{e}{c} \textbf{B}_3 (x^2 - {x^2}_0) -i \hbar c \frac{\partial}{\partial x^2}\right]\phi_{A1}=(E+mc^2)\phi_{A2}\qquad .
+\end{equation} \\ \\
+Acoplamos el sistema para obtener una única ecuación de segundo orden en $x^2$ para cada una de las componentes
+\begin{equation}\label{eq:143}
+\left(-\hbar^2 \frac{\partial^2}{(\partial x^2)^2}+ \frac{1}{4} \frac{e^2}{c^2}(2 \textbf{B}_3)^2(x^2-{x^2}_0)^2\right) \phi_{A1,2}=(E^2 -m^2c^4 \pm \hbar \frac{e}{c}\textbf{B}_3) \phi_{A1,2} \qquad.
+\end{equation} \\ \\
+Esta ecuación tiene la forma de un oscilador armónico en la dirección $x^2$ centrado en ${x^2}_0$ y con frecuencia $\omega=2eB_3 /c$. Para un oscilador armónico cuántico los niveles de energía vienen dados por
+\begin{equation}\label{eq:144}
+E_{osc}=\left(n+\frac{1}{2}\right)\hbar \omega \hspace{2cm} n=0,1,2,... \qquad ,
+\end{equation} \\ \\
+de este modo, por analogía, podemos escribir el primer miembro de la ecuación (\ref{eq:143}) como
+\begin{equation}\label{eq:145}
+\left(n+\frac{1}{2} \right) 2\hbar \frac{e}{c} \textbf{B}_3=\left(E^2-m^2c^4 \pm \hbar \frac{e}{c} \textbf{B}_3 \right) \qquad ,
+\end{equation} \\
+el signo $\pm$ depende de si es la ecuación de $u_{A1}$ o $u_{A2}$ respectivamente, de modo que la expresión de los niveles de energía permitida son diferentes para cada componente
+\begin{equation}\label{eq:146}
+E_{n,A1}=\pm\sqrt{2\frac{e}{c} n \hbar \textbf{B}_3 + m^2c^4} \hspace{2cm}, \hspace{2cm } E_{n,A2}=\pm\sqrt{2\frac{e}{c} (n+1) \hbar \textbf{B}_3 + m^2c^4} \qquad .
+\end{equation} \\ \\
+Los autoestados $\phi_{A1,2}$ del oscilador se corresponden con los polinomios de Hermite, $I_n$
+\begin{equation}\label{eq:147}
+I_n(n,p,x)=-(-1)^n e^{x^2} \frac{d^n}{dx^n}e^{-x^2}
+\end{equation} \\ \\
+de modo que la solución completa es
+\begin{equation}\label{eq:148}
+\psi_{A,P}=N_n e^{\frac{-i}{\hbar}(|E_n|t + p_1 x^1)} \begin{pmatrix}
+(|E_n|+mc^2)I'(n,p_2,x^2) \\ -\sqrt{2ne \hbar \textbf{B}_3} I'(n-1,p_2,x^2)
+\end{pmatrix} $$\\$$
+\psi_{A,N}=N_n e^{\frac{i}{\hbar}(|E_n|t - p_1 x^1)} \begin{pmatrix}
+\sqrt{2ne \hbar \textbf{B}_3} I'(n,-p_2,x^2) \\ (|E_n| + mc^2)I'(n-1,-p_2,x^2)
+\end{pmatrix} \qquad ,
+\end{equation} \\ \\
+donde $I'(n,p,x)$ es
+\begin{equation}\label{eq:149}
+I'_{n}(n,p,x)=\left( \frac{e \textbf{B}_3}{c\pi} \right)^{\frac{1}{4}} \frac{1}{\sqrt{2^n n!}} I_n \left(\sqrt{\frac{e}{c} \textbf{B}_3}\left(x- \frac{pc}{e \textbf{B}_3}\right)\right) e^{-\frac{e \textbf{B}_3}{2c}\left(x-\frac{pc}{e \textbf{B}_3}\right)^2} \hspace{1cm}, \hspace{1cm} I'_n(-1,p,x)=0 \qquad .
+\end{equation} \\ \\
+Vemos que hemos obtenido dos soluciones, una por cada signo de la energía. La primera sirve para describir partículas mientras que la segunda antipartículas.\\ \\
+Del mismo modo que hemos definido ${x^2}_0$, podemos definir otra constante que sea ${x^1}_0=c p_2/e \textbf{B}_3$, de modo que \\ \\
+\begin{equation}\label{eq:150}
+\left[H,{x^1}_0 \right] = \left[H,{x^2}_0 \right] = 0 \hspace{1,5cm}, \hspace{1,5cm} \left[{x^2}_0,{x^1}_0 \right] \neq 0 \qquad.
+\end{equation} \\ \\
+Esto nos dice que en el caso de que el potencial vector no fuese paralelo a la dirección $x^2$, si no que estuviese contenido en el plano $X^1 X^2$, podríamos resolver el problema del mismo modo por medio de separar la ecuación como dos osciladores acoplados en cada dirección centrado cada uno en ${x^1}_0$ y ${x^2}_0$, pero sin ser posible conocer ambos simultaneamente. \\ \\ \\
+\textbf{Representación B} \\ \\ \\
+Vamos a ver ahora que ocurre si utilizamos la otra representación. Actuando de forma análoga obtenemos la ecuación
+\begin{equation}\label{eq:151}
+\left(-\hbar^2 \frac{\partial^2}{(\partial x^2)^2}+ \frac{1}{4} \frac{e^2}{c^2}(2 \textbf{B}_3)^2(x^2 - {x^2}_0)\right) \phi_{B1,2}=(E^2 -m^2c^4 \mp \frac{e}{c}\hbar\textbf{B}_3) \phi_{B1,2} \qquad,
+\end{equation} \\ \\
+donde las soluciones para la energía ahora son
+\begin{equation}\label{eq:152}
+E_{n,B1}=\pm\sqrt{2\frac{e}{c} \hbar (n+1) \textbf{B}_3 + m^2c^4} \hspace{2cm}, \hspace{2cm } E_{n,B2}=\pm\sqrt{2\frac{e}{c} \hbar n \textbf{B}_3 + m^2c^4} \qquad 
+\end{equation} \\ \\
+y la solución completa
+\begin{equation}\label{eq:153}
+\psi_{B,P}=N_n e^{-\frac{i}{\hbar}(|E_n|t + p_1 x^1)} \begin{pmatrix}
+-\sqrt{2ne \hbar \textbf{B}_3} I'(n,p_2,x^2) \\ (|E_n| + mc^2)I'(n-1,p_2,x^2)
+\end{pmatrix}  \qquad {} $$\\$$
+\psi_{B,N}=N_n e^{\frac{i}{\hbar}(|E_n|t - p_1 x^1)} \begin{pmatrix}
+(|E_n|+mc^2)I'(n,-p_2,x^2) \\ \sqrt{2ne \hbar \textbf{B}_3} I'(n-1,-p_2,x^2)
+\end{pmatrix}  \qquad ,
+\end{equation} \\ \\
+donde como antes, la primera describe partículas y la segunda antipartículas. \\ \\
+Si estudiamos el nivel fundamental (n=0) para cada representación podemos ver que para cada representación las soluciones son \\ 
+\begin{equation}\label{eq:154}
+\psi_{A,P}=N_n e^{\frac{-i}{\hbar}(|E_n|t + p_1 x^1)} \begin{pmatrix} 1 \\ 0 \end{pmatrix} \qquad \hspace{1cm}, \hspace{1cm} \psi_{A,N}= \begin{pmatrix} 0 \\ 0 \end{pmatrix} $$\\$$
+\psi_{B,P}= \begin{pmatrix} 0 \\ 0 \end{pmatrix} \qquad , \hspace{1cm},\hspace{1cm} \psi_{B,N}=N_n e^{\frac{i}{\hbar}(|E_n|t - p_1 x^1)} \begin{pmatrix} 1 \\ 0 \end{pmatrix}  \qquad .
+\end{equation} \\ \\
+Vemos por tanto que para una representación nos da el estado fundamental de partícula, mientras que la otra el de antipartícula. El nivel fundamental del oscilador armónico escrito anteriormente tiene como solución estados no degenerados para el nivel fundamental que describen partículas o antipartículas, dependiendo de la representación, siendo todos los niveles doblemente degenerados. \\ \\
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{El problema de Landau en el plano: }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+Además de la doble degeneración de la energía por las dos posibles soluciones para cada valor de n, si tenemos en cuenta que el operador $p_1$ puede tener cualquier valor continuo al ser el hamiltoniano independiente de la coordenada $x^1$, y que el valor de la energía es independiente de este, tenemos una degeneración infinita en $p_1$ en cada nivel. \\ \\
+Esta degeneración infinita se convierte en finita en el caso de que impongamos unas condiciones finitas de contorno, de modo que $p_1$ pase ser un valor discreto.
+\begin{equation}\label{eq:155}
+x^1 \in (0,L_1) \hspace{2cm}, \hspace{2cm} x^2 \in (0,L_2) \qquad ,
+\end{equation} \\ \\
+de modo que el número de estados en un intervalo $\Delta p_1$ es
+\begin{equation}\label{eq:156}
+\Delta n = \frac{L_1}{\pi \hbar} \Delta p_1 \qquad .
+\end{equation} \\ \\
+El hecho de escoger una superficie finita nos impone dos cosas
+\begin{itemize}
+\item El centro del oscilador debe estar dentro de la superficie, lo cual no nos fija una condición de máximo para $p_1$ (y para $p_2$ en el caso de que $A_2 \neq 0$).
+\begin{equation}\label{eq:157}
+{x^2}_0=\frac{p_1 c}{e \textbf{B}_3} \in (0,L_2) \hspace{1cm} \rightarrow \hspace{1cm} p_1 \frac{e}{c} \leq L_2 \textbf{B}_3 
+\end{equation}
+\item La amplitud de oscilación debe ser mucho menor que las dimensiones de la superficie para que no afecte al término de oscilador.
+\end{itemize}
+De este modo el número de estado degenerados es finito y viene acotado por las condiciones de superficie como \\
+\begin{equation}\label{eq:158}
+\Delta n = \frac{e \textbf{B}_3}{c} \frac{L_1 L_2}{\pi \hbar}
+\end{equation} \\ \\
+En el problema en (3+1)-dimensiones aparece una degeneración adiccional asociada al momento $p_3$, la cual también es posible cuantizar imponiendo que la partícula debe estar contenida en un volumen en vez de en una superficie.
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Solución en la representación reducible}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusiones}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%
+% Bibliografía
+%%%%%%%%%%%%%%
+\newpage
+
+\begin{thebibliography}{}
+
+
+\bibitem[1]{Hermoso} \emph{Amplificador Operacional}. 
+Extraido el 11 de marzo del 2015 de
+http://www.uhu.es/adoracion.hermoso/Documentos/Tema-4-AmpliOperc.pdf
+
+\bibitem[2]{Texas Instruments}  \emph{LM741 Operational Amplifier}. Extraído el 11 de marzo del 2015 de
+http://www.ti.com/lit/ds/symlink/lm741.pdf
+
+
+\bibitem[3]{Cascante} \emph{Guía de Laboratorio Electrico II}. Universidad de Costa Rica, Escuela de Ingeniería Eléctrica
+Departamento de Electrónica y Telecomunicaciones.
+
+
+\bibitem[4]{embedded} embedded. \emph{Typically typical}. Recuperado el 11 de marzo del 2015 de: $http://www.embedded.com/electronics-blogs/break-points/4418969/Typically-typical$
+
+
+\bibitem[5]{UNAL} Universidad Nacional de Colombia. \emph{LECCION 5.8: AMPLIFICADOR OPERACIONAL}. Recuperado el 14 de marzo del 2015 de: $http://www.virtual.unal.edu.co/cursos/sedes/manizales/4040003/lecciones/cap4lecc5-8.htm$
+
+%\bibitem[4]{Inele} Curva caracteristicas y funcionamiento \emph{TRIAC}. Extra\'ido el 07 de mayo 2014 en
+%http://www.inele.ufro.cl/bmonteci/semic/applets/pagt riac/triac.htm3
+\end{thebibliography}
+
+%%%%%%%%%%%%%%
+% Anexos
+%%%%%%%%%%%%%%
+
+\appendix
+\section{Anexos}
+
+
+%%%%% Anteproyecto
+%\subsection{Anteproyecto}
+%\includepdf[pages={1-34}]{anteproyecto-1.pdf}
+
+
+%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%
+              
